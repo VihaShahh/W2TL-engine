@@ -1,0 +1,17 @@
+setup.pdf
+understanding.md
+internal-docs/
+openspec
+.codex/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+output/
+node_modules/
+*.log
