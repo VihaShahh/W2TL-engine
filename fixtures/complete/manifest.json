@@ -1,0 +1,13 @@
+{
+  "contract_version": 1,
+  "fixture_set_id": "final_wallet_history",
+  "wallet_files": [
+    "wallets/wallet_alpha.json",
+    "wallets/wallet_beta.json"
+  ],
+  "ownership_file": "ownership.json",
+  "tokens_file": "tokens.json",
+  "prices_file": "prices.json",
+  "scenario_catalog_file": "scenario-catalog.json",
+  "ground_truth_dir": "ground_truth"
+}

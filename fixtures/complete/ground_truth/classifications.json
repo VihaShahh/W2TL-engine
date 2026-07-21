@@ -1,0 +1,1039 @@
+{
+  "fixture_set_id": "final_wallet_history",
+  "classifications": [
+    {
+      "fixture_record_ids": [
+        "complete-buy-old-skito",
+        "complete-buy-old-skito-copy"
+      ],
+      "source_ids": [
+        "src_47393673986a8a9815d1",
+        "src_68be6a952af79e6d7481"
+      ],
+      "event_id": "evt_478419b72636ffaa0b25",
+      "type": "buy",
+      "state": "resolved",
+      "rule_id": "core.exchange.buy"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-buy-sol-alpha"
+      ],
+      "source_ids": [
+        "src_91aaec00bce1b84d1387"
+      ],
+      "event_id": "evt_84149a93b74a06e8e0a6",
+      "type": "buy",
+      "state": "resolved",
+      "rule_id": "core.exchange.buy"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-buy-sol-beta"
+      ],
+      "source_ids": [
+        "src_39a22fd7983e549ecb2d"
+      ],
+      "event_id": "evt_454c0556ccb258816eb6",
+      "type": "buy",
+      "state": "resolved",
+      "rule_id": "core.exchange.buy"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-buy-alpha-skito-01"
+      ],
+      "source_ids": [
+        "src_f30ba4f1029ba6143dec"
+      ],
+      "event_id": "evt_3026ff1037d4f2ab8ca9",
+      "type": "buy",
+      "state": "resolved",
+      "rule_id": "core.exchange.buy"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-buy-alpha-skito-02"
+      ],
+      "source_ids": [
+        "src_d9a1eedc2526f5bba902"
+      ],
+      "event_id": "evt_fc19e45cef74b5533215",
+      "type": "buy",
+      "state": "resolved",
+      "rule_id": "core.exchange.buy"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-buy-alpha-skito-03"
+      ],
+      "source_ids": [
+        "src_65ee1f3801e9fadb8e9b"
+      ],
+      "event_id": "evt_9b9e009d22459d13207b",
+      "type": "buy",
+      "state": "resolved",
+      "rule_id": "core.exchange.buy"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-buy-beta-skito-01"
+      ],
+      "source_ids": [
+        "src_ce38e0c0484671d46065"
+      ],
+      "event_id": "evt_6ad2086e1ecc44b954c5",
+      "type": "buy",
+      "state": "resolved",
+      "rule_id": "core.exchange.buy"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-buy-alpha-skito-04"
+      ],
+      "source_ids": [
+        "src_58203ab279d2313aaceb"
+      ],
+      "event_id": "evt_958bcd227461a0732444",
+      "type": "buy",
+      "state": "resolved",
+      "rule_id": "core.exchange.buy"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-buy-beta-skito-02"
+      ],
+      "source_ids": [
+        "src_a3d1129fc2c37d2ad30d"
+      ],
+      "event_id": "evt_85a64c02c0f33371e873",
+      "type": "buy",
+      "state": "resolved",
+      "rule_id": "core.exchange.buy"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-buy-alpha-skito-05"
+      ],
+      "source_ids": [
+        "src_6630092268d9f7171d48"
+      ],
+      "event_id": "evt_07bfccb8b98d9f66fba2",
+      "type": "buy",
+      "state": "resolved",
+      "rule_id": "core.exchange.buy"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-buy-alpha-skito-06"
+      ],
+      "source_ids": [
+        "src_d7e95e7f56593c1eeb99"
+      ],
+      "event_id": "evt_08ed1b4e1c702bccf9f0",
+      "type": "buy",
+      "state": "resolved",
+      "rule_id": "core.exchange.buy"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-buy-beta-skito-03"
+      ],
+      "source_ids": [
+        "src_56b5cdd6a592a611818c"
+      ],
+      "event_id": "evt_682c92c92e9702afa9a6",
+      "type": "buy",
+      "state": "resolved",
+      "rule_id": "core.exchange.buy"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-buy-alpha-skito-07"
+      ],
+      "source_ids": [
+        "src_6ee041acc926eef95dcd"
+      ],
+      "event_id": "evt_ee98fa1f58351afd29fb",
+      "type": "buy",
+      "state": "resolved",
+      "rule_id": "core.exchange.buy"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-buy-beta-mystery"
+      ],
+      "source_ids": [
+        "src_170c6d91aadef5feb68d"
+      ],
+      "event_id": "evt_a6c0367a28d6f6a5466d",
+      "type": "buy",
+      "state": "resolved",
+      "rule_id": "core.exchange.buy"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-buy-alpha-skito-08"
+      ],
+      "source_ids": [
+        "src_8f48d142d7c88a483430"
+      ],
+      "event_id": "evt_c184c8e5c252bc620bae",
+      "type": "buy",
+      "state": "resolved",
+      "rule_id": "core.exchange.buy"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-buy-alpha-skito-09"
+      ],
+      "source_ids": [
+        "src_6cf0e6ac21a4e0462814"
+      ],
+      "event_id": "evt_982a589eac8c4b371f3a",
+      "type": "buy",
+      "state": "resolved",
+      "rule_id": "core.exchange.buy"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-buy-alpha-skito-10"
+      ],
+      "source_ids": [
+        "src_d992ec4a84e575568452"
+      ],
+      "event_id": "evt_04caf5bdaaee0348acac",
+      "type": "buy",
+      "state": "resolved",
+      "rule_id": "core.exchange.buy"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-buy-alpha-skito-11"
+      ],
+      "source_ids": [
+        "src_08ebf5aa2606c0da2832"
+      ],
+      "event_id": "evt_ad6e452e69e86c7a6141",
+      "type": "buy",
+      "state": "resolved",
+      "rule_id": "core.exchange.buy"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-buy-tie-alpha"
+      ],
+      "source_ids": [
+        "src_7e99acf7bf2f87f90e22"
+      ],
+      "event_id": "evt_b263118ba87b64b1caef",
+      "type": "buy",
+      "state": "resolved",
+      "rule_id": "core.exchange.buy"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-buy-tie-zulu"
+      ],
+      "source_ids": [
+        "src_04850e630af65a0565f6"
+      ],
+      "event_id": "evt_eec1f35f1e40d3e0a91d",
+      "type": "buy",
+      "state": "resolved",
+      "rule_id": "core.exchange.buy"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-sale-01"
+      ],
+      "source_ids": [
+        "src_3cc9ca7529cf936180f3"
+      ],
+      "event_id": "evt_784cd3b6ef55aa84d7f7",
+      "type": "sell",
+      "state": "resolved",
+      "rule_id": "core.exchange.sell"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-sale-after-boundary"
+      ],
+      "source_ids": [
+        "src_642e63c59b55fb416446"
+      ],
+      "event_id": "evt_899d5065b78a554ed3cc",
+      "type": "sell",
+      "state": "resolved",
+      "rule_id": "core.exchange.sell"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-sale-02"
+      ],
+      "source_ids": [
+        "src_891851240ce9f910de1f"
+      ],
+      "event_id": "evt_cab54c2d2a45838ea71e",
+      "type": "sell",
+      "state": "resolved",
+      "rule_id": "core.exchange.sell"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-sale-03"
+      ],
+      "source_ids": [
+        "src_7c8690276cd7c639f3db"
+      ],
+      "event_id": "evt_d4d7eeb96b0d6de7043e",
+      "type": "sell",
+      "state": "resolved",
+      "rule_id": "core.exchange.sell"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-sale-04"
+      ],
+      "source_ids": [
+        "src_4ca0bb74cd23541a40eb"
+      ],
+      "event_id": "evt_389a9bcc547644fa68c6",
+      "type": "sell",
+      "state": "resolved",
+      "rule_id": "core.exchange.sell"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-sale-05"
+      ],
+      "source_ids": [
+        "src_6448cbcfb84fda351f40"
+      ],
+      "event_id": "evt_62cba67e3b2422f607d9",
+      "type": "sell",
+      "state": "resolved",
+      "rule_id": "core.exchange.sell"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-sale-06"
+      ],
+      "source_ids": [
+        "src_055e6781fa7ba2f9f88a"
+      ],
+      "event_id": "evt_3ea485f749d77fb24d6b",
+      "type": "sell",
+      "state": "resolved",
+      "rule_id": "core.exchange.sell"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-sale-07"
+      ],
+      "source_ids": [
+        "src_b525588c6011a379416a"
+      ],
+      "event_id": "evt_36504c93a9c544ece8ab",
+      "type": "sell",
+      "state": "resolved",
+      "rule_id": "core.exchange.sell"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-sale-08"
+      ],
+      "source_ids": [
+        "src_059a4257b1ae3f1695cc"
+      ],
+      "event_id": "evt_a5b400bc19a68960ea8c",
+      "type": "sell",
+      "state": "resolved",
+      "rule_id": "core.exchange.sell"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-sale-09"
+      ],
+      "source_ids": [
+        "src_4b63a9d9a1330bf511fc"
+      ],
+      "event_id": "evt_96be8e84a47b1ac31316",
+      "type": "sell",
+      "state": "resolved",
+      "rule_id": "core.exchange.sell"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-sale-10"
+      ],
+      "source_ids": [
+        "src_559efcdbe5e4bd647948"
+      ],
+      "event_id": "evt_4196d6abb42268bae2dd",
+      "type": "sell",
+      "state": "resolved",
+      "rule_id": "core.exchange.sell"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-sale-11"
+      ],
+      "source_ids": [
+        "src_87ad81920182637c1915"
+      ],
+      "event_id": "evt_fd4902c3d089957fa5e7",
+      "type": "sell",
+      "state": "resolved",
+      "rule_id": "core.exchange.sell"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-sale-12"
+      ],
+      "source_ids": [
+        "src_eb7a86181dcdcb52d1cb"
+      ],
+      "event_id": "evt_949389790f6de4e8dd28",
+      "type": "sell",
+      "state": "resolved",
+      "rule_id": "core.exchange.sell"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-external-mystery-alpha"
+      ],
+      "source_ids": [
+        "src_cb710b465cc2b28b81c2"
+      ],
+      "event_id": "evt_3fb09ec7cb66a2023575",
+      "type": "external_inbound",
+      "state": "resolved",
+      "rule_id": "core.external_inbound"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-sale-13"
+      ],
+      "source_ids": [
+        "src_7178e8142fb8f8753b2f"
+      ],
+      "event_id": "evt_5dc69a2f5eecf02b094d",
+      "type": "sell",
+      "state": "resolved",
+      "rule_id": "core.exchange.sell"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-external-mystery-beta"
+      ],
+      "source_ids": [
+        "src_e30a0a18884810ca61b4"
+      ],
+      "event_id": "evt_b42dff3f9dadd081c327",
+      "type": "external_inbound",
+      "state": "resolved",
+      "rule_id": "core.external_inbound"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-sale-14"
+      ],
+      "source_ids": [
+        "src_fc7fc9d77079c715aeef"
+      ],
+      "event_id": "evt_f0fd2502c7a58ead4de6",
+      "type": "sell",
+      "state": "resolved",
+      "rule_id": "core.exchange.sell"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-external-in-01"
+      ],
+      "source_ids": [
+        "src_390a40924f6f29408611"
+      ],
+      "event_id": "evt_09537583b15111f7d53e",
+      "type": "external_inbound",
+      "state": "resolved",
+      "rule_id": "core.external_inbound"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-external-in-02"
+      ],
+      "source_ids": [
+        "src_b28090ab46a173e113d7"
+      ],
+      "event_id": "evt_111e543681144972b8b5",
+      "type": "external_inbound",
+      "state": "resolved",
+      "rule_id": "core.external_inbound"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-external-in-03"
+      ],
+      "source_ids": [
+        "src_ad7ef87bbc5a6e584606"
+      ],
+      "event_id": "evt_e757aa9dc79cfdb6691c",
+      "type": "external_inbound",
+      "state": "resolved",
+      "rule_id": "core.external_inbound"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-external-in-04"
+      ],
+      "source_ids": [
+        "src_ae8c6b5f02d82d2308a8"
+      ],
+      "event_id": "evt_1e3cfb7ad6662439c63a",
+      "type": "external_inbound",
+      "state": "resolved",
+      "rule_id": "core.external_inbound"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-sale-15"
+      ],
+      "source_ids": [
+        "src_57cec27b6845aa2d9471"
+      ],
+      "event_id": "evt_5b3047bf68f75c983ea2",
+      "type": "sell",
+      "state": "resolved",
+      "rule_id": "core.exchange.sell"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-external-in-05"
+      ],
+      "source_ids": [
+        "src_2aca4658deecf9435665"
+      ],
+      "event_id": "evt_0fa4dacccd9d8fa11b73",
+      "type": "external_inbound",
+      "state": "resolved",
+      "rule_id": "core.external_inbound"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-external-in-06"
+      ],
+      "source_ids": [
+        "src_d4a098ada364d09267aa"
+      ],
+      "event_id": "evt_e235fbef3bf3757dff10",
+      "type": "external_inbound",
+      "state": "resolved",
+      "rule_id": "core.external_inbound"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-sale-16"
+      ],
+      "source_ids": [
+        "src_0a0d0dc1ab3b1c2c4ca6"
+      ],
+      "event_id": "evt_25d32b5e98e6aa7db4f6",
+      "type": "sell",
+      "state": "resolved",
+      "rule_id": "core.exchange.sell"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-transfer-skito-span-out",
+        "complete-transfer-skito-span-in"
+      ],
+      "source_ids": [
+        "src_ca50b28ddb82d30f121e",
+        "src_f8429df70392fa2f9c1b"
+      ],
+      "event_id": "evt_83c78e147508f23573a1",
+      "type": "internal_transfer",
+      "state": "resolved",
+      "rule_id": "core.owned_transfer"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-transfer-skito-second-out",
+        "complete-transfer-skito-second-in"
+      ],
+      "source_ids": [
+        "src_3cc8bd2ebb228eb96ded",
+        "src_4b3bd4e64371f44f4a7a"
+      ],
+      "event_id": "evt_99274a8ac27c60881c41",
+      "type": "internal_transfer",
+      "state": "resolved",
+      "rule_id": "core.owned_transfer"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-external-out-01"
+      ],
+      "source_ids": [
+        "src_a78777f1dfebb3ca5a86"
+      ],
+      "event_id": "evt_59ca25196bcf74fe3e60",
+      "type": "external_outbound",
+      "state": "resolved",
+      "rule_id": "core.external_outbound"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-transfer-skito-return-in",
+        "complete-transfer-skito-return-out"
+      ],
+      "source_ids": [
+        "src_7fcdef35b352929fbbd0",
+        "src_b4e77c8ac8274bad8043"
+      ],
+      "event_id": "evt_7de5a7cb96857b303a84",
+      "type": "internal_transfer",
+      "state": "resolved",
+      "rule_id": "core.owned_transfer"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-external-out-02"
+      ],
+      "source_ids": [
+        "src_247c70e209b06700bbe6"
+      ],
+      "event_id": "evt_5eca8cd46d0327f86a38",
+      "type": "external_outbound",
+      "state": "resolved",
+      "rule_id": "core.external_outbound"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-transfer-skito-third-out",
+        "complete-transfer-skito-third-in"
+      ],
+      "source_ids": [
+        "src_679b0c33ce43b4216552",
+        "src_dc02c5185a8079833a74"
+      ],
+      "event_id": "evt_c58a8823c0c29e7bc336",
+      "type": "internal_transfer",
+      "state": "resolved",
+      "rule_id": "core.owned_transfer"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-transfer-skito-return-two-in",
+        "complete-transfer-skito-return-two-out"
+      ],
+      "source_ids": [
+        "src_3e1dc961fdaa962448a4",
+        "src_58de3de0fb8d9c324f93"
+      ],
+      "event_id": "evt_56376da30320fb2b0ab4",
+      "type": "internal_transfer",
+      "state": "resolved",
+      "rule_id": "core.owned_transfer"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-transfer-mystery-in",
+        "complete-transfer-mystery-out"
+      ],
+      "source_ids": [
+        "src_1e1926cda3da277c45ff",
+        "src_769141e6576f2cfe187c"
+      ],
+      "event_id": "evt_62c704807aa5fdde60b3",
+      "type": "internal_transfer",
+      "state": "resolved",
+      "rule_id": "core.owned_transfer"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-sale-mixed-mystery"
+      ],
+      "source_ids": [
+        "src_26d6ded36aada1fca385"
+      ],
+      "event_id": "evt_f8f6a5687e3530fc2e53",
+      "type": "sell",
+      "state": "resolved",
+      "rule_id": "core.exchange.sell"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-swap-valued-01"
+      ],
+      "source_ids": [
+        "src_ae25ffe109f24bd6ee25"
+      ],
+      "event_id": "evt_b17e2f697cd24bf754fc",
+      "type": "swap",
+      "state": "resolved",
+      "rule_id": "core.swap"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-swap-valued-02"
+      ],
+      "source_ids": [
+        "src_ffd2d9ac92c6ac8adf04"
+      ],
+      "event_id": "evt_e490665c49298382ed6b",
+      "type": "swap",
+      "state": "resolved",
+      "rule_id": "core.swap"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-swap-valued-03"
+      ],
+      "source_ids": [
+        "src_cb41eac05a28b3675347"
+      ],
+      "event_id": "evt_549357344f848a278691",
+      "type": "swap",
+      "state": "resolved",
+      "rule_id": "core.swap"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-swap-valued-04"
+      ],
+      "source_ids": [
+        "src_e680e4d6a9267b4b770c"
+      ],
+      "event_id": "evt_3508dc79f576a49490d5",
+      "type": "swap",
+      "state": "resolved",
+      "rule_id": "core.swap"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-swap-valued-05"
+      ],
+      "source_ids": [
+        "src_ce7f72d526952773e0f9"
+      ],
+      "event_id": "evt_18cc51be313b0b0f37ce",
+      "type": "swap",
+      "state": "resolved",
+      "rule_id": "core.swap"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-swap-valued-06"
+      ],
+      "source_ids": [
+        "src_9dd59eeb9c79c0707d67"
+      ],
+      "event_id": "evt_58204a748527ad33b5b4",
+      "type": "swap",
+      "state": "resolved",
+      "rule_id": "core.swap"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-swap-valued-07"
+      ],
+      "source_ids": [
+        "src_736ca13ad9f97dd9e06d"
+      ],
+      "event_id": "evt_848c21320560c83f93de",
+      "type": "swap",
+      "state": "resolved",
+      "rule_id": "core.swap"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-swap-valued-08"
+      ],
+      "source_ids": [
+        "src_3d76342ba01758d6ae48"
+      ],
+      "event_id": "evt_ee9727d58ea7bda61910",
+      "type": "swap",
+      "state": "resolved",
+      "rule_id": "core.swap"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-swap-blocked-01"
+      ],
+      "source_ids": [
+        "src_efd93def401443ae4fea"
+      ],
+      "event_id": "evt_5f8624c177be4c2d8154",
+      "type": "swap",
+      "state": "resolved",
+      "rule_id": "core.swap"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-swap-blocked-02"
+      ],
+      "source_ids": [
+        "src_a744de79430e9422aa2e"
+      ],
+      "event_id": "evt_533268fd2a307c6de7fa",
+      "type": "swap",
+      "state": "resolved",
+      "rule_id": "core.swap"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-swap-blocked-03"
+      ],
+      "source_ids": [
+        "src_d70bfe8539f4c92fb786"
+      ],
+      "event_id": "evt_1b7581e8d0ab29798454",
+      "type": "swap",
+      "state": "resolved",
+      "rule_id": "core.swap"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-swap-reverse"
+      ],
+      "source_ids": [
+        "src_e14fab5bb85b6b1c21f6"
+      ],
+      "event_id": "evt_2d54344a51ebc83c3a9d",
+      "type": "swap",
+      "state": "resolved",
+      "rule_id": "core.swap"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-wrap-supported"
+      ],
+      "source_ids": [
+        "src_69dd014a94ac325b8ebe"
+      ],
+      "event_id": "evt_bad9daa4fe0eee844820",
+      "type": "wrap",
+      "state": "resolved",
+      "rule_id": "core.wrap"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-wrap-ambiguous"
+      ],
+      "source_ids": [
+        "src_bdae764e05f15b3c9537"
+      ],
+      "event_id": "evt_f57af15360a3c04c0cba",
+      "type": "wrap",
+      "state": "resolved",
+      "rule_id": "core.wrap"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-reward-01"
+      ],
+      "source_ids": [
+        "src_ba939986b1005d0c8589"
+      ],
+      "event_id": "evt_60b9b1a86e5963d96924",
+      "type": "staking_reward",
+      "state": "resolved",
+      "rule_id": "core.staking_reward"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-reward-02"
+      ],
+      "source_ids": [
+        "src_adcb95ed6c188717c7d2"
+      ],
+      "event_id": "evt_cd641e18b5489fee1456",
+      "type": "staking_reward",
+      "state": "resolved",
+      "rule_id": "core.staking_reward"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-reward-03"
+      ],
+      "source_ids": [
+        "src_507e474ba4430013dda4"
+      ],
+      "event_id": "evt_6e1d03456db09292d3a2",
+      "type": "staking_reward",
+      "state": "resolved",
+      "rule_id": "core.staking_reward"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-reward-04"
+      ],
+      "source_ids": [
+        "src_57c886eaee4c98f64798"
+      ],
+      "event_id": "evt_661ece85a2d0156649b4",
+      "type": "staking_reward",
+      "state": "resolved",
+      "rule_id": "core.staking_reward"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-airdrop-01"
+      ],
+      "source_ids": [
+        "src_1e51c2a3171dad15a74d"
+      ],
+      "event_id": "evt_3e700e873e77a4654df7",
+      "type": "airdrop",
+      "state": "resolved",
+      "rule_id": "core.airdrop"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-airdrop-02"
+      ],
+      "source_ids": [
+        "src_32fb512bfe4e33bd1a8a"
+      ],
+      "event_id": "evt_acaf7ca240d0e6479e01",
+      "type": "airdrop",
+      "state": "resolved",
+      "rule_id": "core.airdrop"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-airdrop-03"
+      ],
+      "source_ids": [
+        "src_0d5293dd686fda3f4bf7"
+      ],
+      "event_id": "evt_b5c31ecb9fe34de7afcc",
+      "type": "airdrop",
+      "state": "resolved",
+      "rule_id": "core.airdrop"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-spam-01"
+      ],
+      "source_ids": [
+        "src_51b08e36986f90425fc4"
+      ],
+      "event_id": "evt_370612b98d4e184f7262",
+      "type": "spam_airdrop",
+      "state": "review_flagged",
+      "rule_id": "core.spam_airdrop"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-spam-02"
+      ],
+      "source_ids": [
+        "src_5417e5dc52fb5610e359"
+      ],
+      "event_id": "evt_beb644023ace941747b2",
+      "type": "spam_airdrop",
+      "state": "review_flagged",
+      "rule_id": "core.spam_airdrop"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-spam-03"
+      ],
+      "source_ids": [
+        "src_8d2d41a2a97c0d3d1cb8"
+      ],
+      "event_id": "evt_ffacd8c263ffdce7310a",
+      "type": "spam_airdrop",
+      "state": "review_flagged",
+      "rule_id": "core.spam_airdrop"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-sale-insufficient"
+      ],
+      "source_ids": [
+        "src_bedfee3c7ccfbe793759"
+      ],
+      "event_id": "evt_2c699d5fe139710bc4b3",
+      "type": "sell",
+      "state": "resolved",
+      "rule_id": "core.exchange.sell"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-fee-failure-01"
+      ],
+      "source_ids": [
+        "src_e1834337569f2116e0ff"
+      ],
+      "event_id": "evt_c737ad92640688ec5a4b",
+      "type": "fee",
+      "state": "resolved",
+      "rule_id": "core.fee_only"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-fee-failure-02"
+      ],
+      "source_ids": [
+        "src_c61aa1d81a817a869f20"
+      ],
+      "event_id": "evt_9dd1625eed855fa71f7d",
+      "type": "failed",
+      "state": "resolved",
+      "rule_id": "core.failed"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-fee-failure-03"
+      ],
+      "source_ids": [
+        "src_02b5387aae200aa34c2c"
+      ],
+      "event_id": "evt_abbb59e6d7e97c361844",
+      "type": "failed",
+      "state": "resolved",
+      "rule_id": "core.failed"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-fee-failure-04"
+      ],
+      "source_ids": [
+        "src_26aa6a5025b62ab2f509"
+      ],
+      "event_id": "evt_0b8f14fdc8979cd3bd9a",
+      "type": "fee",
+      "state": "resolved",
+      "rule_id": "core.fee_only"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-fee-failure-05"
+      ],
+      "source_ids": [
+        "src_4c0cf9d2727556514257"
+      ],
+      "event_id": "evt_5ee49d1d5187a186a5f7",
+      "type": "failed",
+      "state": "resolved",
+      "rule_id": "core.failed"
+    },
+    {
+      "fixture_record_ids": [
+        "complete-fee-failure-06"
+      ],
+      "source_ids": [
+        "src_67630776544c056eb24b"
+      ],
+      "event_id": "evt_5038e95d5565c559cf99",
+      "type": "failed",
+      "state": "resolved",
+      "rule_id": "core.failed"
+    }
+  ]
+}

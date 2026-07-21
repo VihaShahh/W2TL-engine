@@ -1,0 +1,929 @@
+{
+  "fixture_set_id": "final_wallet_history",
+  "wallet_id": "synthetic_wallet_beta",
+  "records": [
+    {
+      "fixture_record_id": "complete-buy-sol-beta",
+      "signature": "synthetic_signature_complete-buy-sol-beta",
+      "slot": 1002,
+      "timestamp_utc": "2024-01-03T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_exchange",
+          "instruction_type": "buy",
+          "mint": "synthetic_mint_sol",
+          "quantity_base_units": 500000000,
+          "cash_value_usd": "50.00"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_sol",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 500000000,
+          "delta_base_units": 500000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-buy-beta-skito-01",
+      "signature": "synthetic_signature_complete-buy-beta-skito-01",
+      "slot": 1016,
+      "timestamp_utc": "2024-03-01T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_exchange",
+          "instruction_type": "buy",
+          "mint": "synthetic_mint_skito",
+          "quantity_base_units": 8000000,
+          "cash_value_usd": "24.00"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_skito",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 8000000,
+          "delta_base_units": 8000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-buy-beta-skito-02",
+      "signature": "synthetic_signature_complete-buy-beta-skito-02",
+      "slot": 1017,
+      "timestamp_utc": "2024-03-21T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_exchange",
+          "instruction_type": "buy",
+          "mint": "synthetic_mint_skito",
+          "quantity_base_units": 8000000,
+          "cash_value_usd": "24.00"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_skito",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 8000000,
+          "delta_base_units": 8000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-buy-beta-skito-03",
+      "signature": "synthetic_signature_complete-buy-beta-skito-03",
+      "slot": 1018,
+      "timestamp_utc": "2024-04-10T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_exchange",
+          "instruction_type": "buy",
+          "mint": "synthetic_mint_skito",
+          "quantity_base_units": 8000000,
+          "cash_value_usd": "24.00"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_skito",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 8000000,
+          "delta_base_units": 8000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-buy-beta-mystery",
+      "signature": "synthetic_signature_complete-buy-beta-mystery",
+      "slot": 1019,
+      "timestamp_utc": "2024-04-30T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_exchange",
+          "instruction_type": "buy",
+          "mint": "synthetic_mint_mystery",
+          "quantity_base_units": 1000000,
+          "cash_value_usd": "3.00"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_mystery",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 1000000,
+          "delta_base_units": 1000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-sale-13",
+      "signature": "synthetic_signature_complete-sale-13",
+      "slot": 1032,
+      "timestamp_utc": "2025-04-02T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_exchange",
+          "instruction_type": "sell",
+          "mint": "synthetic_mint_skito",
+          "quantity_base_units": 1000000,
+          "cash_value_usd": "5.00"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_skito",
+          "pre_balance_base_units": 1000000,
+          "post_balance_base_units": 0,
+          "delta_base_units": -1000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-sale-14",
+      "signature": "synthetic_signature_complete-sale-14",
+      "slot": 1033,
+      "timestamp_utc": "2025-04-09T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_exchange",
+          "instruction_type": "sell",
+          "mint": "synthetic_mint_skito",
+          "quantity_base_units": 1000000,
+          "cash_value_usd": "5.00"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_skito",
+          "pre_balance_base_units": 1000000,
+          "post_balance_base_units": 0,
+          "delta_base_units": -1000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-sale-15",
+      "signature": "synthetic_signature_complete-sale-15",
+      "slot": 1034,
+      "timestamp_utc": "2025-04-16T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_exchange",
+          "instruction_type": "sell",
+          "mint": "synthetic_mint_skito",
+          "quantity_base_units": 1000000,
+          "cash_value_usd": "5.00"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_skito",
+          "pre_balance_base_units": 1000000,
+          "post_balance_base_units": 0,
+          "delta_base_units": -1000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-sale-16",
+      "signature": "synthetic_signature_complete-sale-16",
+      "slot": 1035,
+      "timestamp_utc": "2025-04-23T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_exchange",
+          "instruction_type": "sell",
+          "mint": "synthetic_mint_skito",
+          "quantity_base_units": 1000000,
+          "cash_value_usd": "5.00"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_skito",
+          "pre_balance_base_units": 1000000,
+          "post_balance_base_units": 0,
+          "delta_base_units": -1000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-sale-insufficient",
+      "signature": "synthetic_signature_complete-sale-insufficient",
+      "slot": 1037,
+      "timestamp_utc": "2025-10-28T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_exchange",
+          "instruction_type": "sell",
+          "mint": "synthetic_mint_skito",
+          "quantity_base_units": 999000000,
+          "cash_value_usd": "999.00"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_skito",
+          "pre_balance_base_units": 999000000,
+          "post_balance_base_units": 0,
+          "delta_base_units": -999000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-transfer-skito-span-in",
+      "signature": "synthetic_signature_transfer_skito-span",
+      "slot": 1039,
+      "timestamp_utc": "2025-05-01T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_system",
+          "instruction_type": "transfer",
+          "mint": "synthetic_mint_skito",
+          "quantity_base_units": 5000000,
+          "counterparty_wallet_id": "synthetic_wallet_alpha"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_skito",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 5000000,
+          "delta_base_units": 5000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-transfer-skito-second-in",
+      "signature": "synthetic_signature_transfer_skito-second",
+      "slot": 1041,
+      "timestamp_utc": "2025-05-02T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_system",
+          "instruction_type": "transfer",
+          "mint": "synthetic_mint_skito",
+          "quantity_base_units": 2000000,
+          "counterparty_wallet_id": "synthetic_wallet_alpha"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_skito",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 2000000,
+          "delta_base_units": 2000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-transfer-skito-return-out",
+      "signature": "synthetic_signature_transfer_skito-return",
+      "slot": 1042,
+      "timestamp_utc": "2025-05-03T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_system",
+          "instruction_type": "transfer",
+          "mint": "synthetic_mint_skito",
+          "quantity_base_units": 1000000,
+          "counterparty_wallet_id": "synthetic_wallet_alpha"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_skito",
+          "pre_balance_base_units": 1000000,
+          "post_balance_base_units": 0,
+          "delta_base_units": -1000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-transfer-skito-third-in",
+      "signature": "synthetic_signature_transfer_skito-third",
+      "slot": 1045,
+      "timestamp_utc": "2025-05-04T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_system",
+          "instruction_type": "transfer",
+          "mint": "synthetic_mint_skito",
+          "quantity_base_units": 1000000,
+          "counterparty_wallet_id": "synthetic_wallet_alpha"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_skito",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 1000000,
+          "delta_base_units": 1000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-transfer-skito-return-two-out",
+      "signature": "synthetic_signature_transfer_skito-return-two",
+      "slot": 1046,
+      "timestamp_utc": "2025-05-05T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_system",
+          "instruction_type": "transfer",
+          "mint": "synthetic_mint_skito",
+          "quantity_base_units": 1000000,
+          "counterparty_wallet_id": "synthetic_wallet_alpha"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_skito",
+          "pre_balance_base_units": 1000000,
+          "post_balance_base_units": 0,
+          "delta_base_units": -1000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-transfer-mystery-in",
+      "signature": "synthetic_signature_transfer_unknown_mystery",
+      "slot": 1050,
+      "timestamp_utc": "2025-05-07T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_system",
+          "instruction_type": "transfer",
+          "mint": "synthetic_mint_mystery",
+          "quantity_base_units": 1000000,
+          "counterparty_wallet_id": "synthetic_wallet_alpha"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_mystery",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 1000000,
+          "delta_base_units": 1000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-external-mystery-beta",
+      "signature": "synthetic_signature_complete-external-mystery-beta",
+      "slot": 1051,
+      "timestamp_utc": "2025-04-02T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_system",
+          "instruction_type": "transfer",
+          "mint": "synthetic_mint_mystery",
+          "quantity_base_units": 1000000,
+          "counterparty_wallet_id": "synthetic_external_wallet_origin_two"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_mystery",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 1000000,
+          "delta_base_units": 1000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-external-in-02",
+      "signature": "synthetic_signature_complete-external-in-02",
+      "slot": 1053,
+      "timestamp_utc": "2025-04-13T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_system",
+          "instruction_type": "transfer",
+          "mint": "synthetic_mint_drop",
+          "quantity_base_units": 500000,
+          "counterparty_wallet_id": "synthetic_external_wallet_source_02"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_drop",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 500000,
+          "delta_base_units": 500000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-external-in-04",
+      "signature": "synthetic_signature_complete-external-in-04",
+      "slot": 1055,
+      "timestamp_utc": "2025-04-15T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_system",
+          "instruction_type": "transfer",
+          "mint": "synthetic_mint_mystery",
+          "quantity_base_units": 1000000,
+          "counterparty_wallet_id": "synthetic_external_wallet_source_04"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_mystery",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 1000000,
+          "delta_base_units": 1000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-external-in-06",
+      "signature": "synthetic_signature_complete-external-in-06",
+      "slot": 1057,
+      "timestamp_utc": "2025-04-17T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_system",
+          "instruction_type": "transfer",
+          "mint": "synthetic_mint_mystery",
+          "quantity_base_units": 1500000,
+          "counterparty_wallet_id": "synthetic_external_wallet_source_06"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_mystery",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 1500000,
+          "delta_base_units": 1500000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-external-out-02",
+      "signature": "synthetic_signature_complete-external-out-02",
+      "slot": 1059,
+      "timestamp_utc": "2025-05-03T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_system",
+          "instruction_type": "transfer",
+          "mint": "synthetic_mint_skito",
+          "quantity_base_units": 1000000,
+          "counterparty_wallet_id": "synthetic_external_wallet_destination_02"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_skito",
+          "pre_balance_base_units": 1000000,
+          "post_balance_base_units": 0,
+          "delta_base_units": -1000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-sale-mixed-mystery",
+      "signature": "synthetic_signature_complete-sale-mixed-mystery",
+      "slot": 1060,
+      "timestamp_utc": "2025-07-01T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_exchange",
+          "instruction_type": "sell",
+          "mint": "synthetic_mint_mystery",
+          "quantity_base_units": 2500000,
+          "cash_value_usd": "12.50"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_mystery",
+          "pre_balance_base_units": 2500000,
+          "post_balance_base_units": 0,
+          "delta_base_units": -2500000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-swap-valued-07",
+      "signature": "synthetic_signature_complete-swap-valued-07",
+      "slot": 1067,
+      "timestamp_utc": "2025-08-08T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_swap_program",
+          "instruction_type": "swap",
+          "mint": "synthetic_mint_skito",
+          "quantity_base_units": 1000000
+        },
+        {
+          "program": "synthetic_swap_program",
+          "instruction_type": "swap",
+          "mint": "synthetic_mint_nova",
+          "quantity_base_units": 2000000
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_skito",
+          "pre_balance_base_units": 1000000,
+          "post_balance_base_units": 0,
+          "delta_base_units": -1000000
+        },
+        {
+          "mint": "synthetic_mint_nova",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 2000000,
+          "delta_base_units": 2000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-swap-valued-08",
+      "signature": "synthetic_signature_complete-swap-valued-08",
+      "slot": 1068,
+      "timestamp_utc": "2025-08-09T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_swap_program",
+          "instruction_type": "swap",
+          "mint": "synthetic_mint_skito",
+          "quantity_base_units": 1000000
+        },
+        {
+          "program": "synthetic_swap_program",
+          "instruction_type": "swap",
+          "mint": "synthetic_mint_nova",
+          "quantity_base_units": 2000000
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_skito",
+          "pre_balance_base_units": 1000000,
+          "post_balance_base_units": 0,
+          "delta_base_units": -1000000
+        },
+        {
+          "mint": "synthetic_mint_nova",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 2000000,
+          "delta_base_units": 2000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-wrap-ambiguous",
+      "signature": "synthetic_signature_complete-wrap-ambiguous",
+      "slot": 1074,
+      "timestamp_utc": "2025-09-11T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_wrap_program",
+          "instruction_type": "wrap",
+          "mint": "synthetic_mint_skito",
+          "quantity_base_units": 1000000
+        },
+        {
+          "program": "synthetic_wrap_program",
+          "instruction_type": "wrap",
+          "mint": "synthetic_mint_wrapped_skito",
+          "quantity_base_units": 500000
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_skito",
+          "pre_balance_base_units": 1000000,
+          "post_balance_base_units": 0,
+          "delta_base_units": -1000000
+        },
+        {
+          "mint": "synthetic_mint_wrapped_skito",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 500000,
+          "delta_base_units": 500000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-airdrop-01",
+      "signature": "synthetic_signature_complete-airdrop-01",
+      "slot": 1079,
+      "timestamp_utc": "2025-10-12T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_airdrop_program",
+          "instruction_type": "airdrop",
+          "mint": "synthetic_mint_drop",
+          "quantity_base_units": 2000000
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_drop",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 2000000,
+          "delta_base_units": 2000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-airdrop-02",
+      "signature": "synthetic_signature_complete-airdrop-02",
+      "slot": 1080,
+      "timestamp_utc": "2025-10-13T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_airdrop_program",
+          "instruction_type": "airdrop",
+          "mint": "synthetic_mint_drop",
+          "quantity_base_units": 2000000
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_drop",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 2000000,
+          "delta_base_units": 2000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-airdrop-03",
+      "signature": "synthetic_signature_complete-airdrop-03",
+      "slot": 1081,
+      "timestamp_utc": "2025-10-14T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_airdrop_program",
+          "instruction_type": "airdrop",
+          "mint": "synthetic_mint_drop",
+          "quantity_base_units": 2000000
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_drop",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 2000000,
+          "delta_base_units": 2000000
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-spam-02",
+      "signature": "synthetic_signature_complete-spam-02",
+      "slot": 1083,
+      "timestamp_utc": "2025-10-23T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_airdrop_program",
+          "instruction_type": "spam_airdrop",
+          "mint": "synthetic_mint_spam",
+          "quantity_base_units": 2
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_spam",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 2,
+          "delta_base_units": 2
+        }
+      ]
+    },
+    {
+      "fixture_record_id": "complete-fee-failure-04",
+      "signature": "synthetic_signature_complete-fee-failure-04",
+      "slot": 1088,
+      "timestamp_utc": "2025-11-05T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 10000000,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": true,
+      "instructions": [],
+      "token_balance_changes": [],
+      "fee_mint": "synthetic_mint_sol"
+    },
+    {
+      "fixture_record_id": "complete-fee-failure-05",
+      "signature": "synthetic_signature_complete-fee-failure-05",
+      "slot": 1089,
+      "timestamp_utc": "2025-11-06T00:00:00Z",
+      "status": "failed",
+      "instruction_index": 0,
+      "fee_base_units": 10000000,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": true,
+      "instructions": [
+        {
+          "program": "synthetic_swap_program",
+          "instruction_type": "swap",
+          "mint": "synthetic_mint_skito",
+          "quantity_base_units": 1000000
+        },
+        {
+          "program": "synthetic_swap_program",
+          "instruction_type": "swap",
+          "mint": "synthetic_mint_nova",
+          "quantity_base_units": 2000000
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_skito",
+          "pre_balance_base_units": 1000000,
+          "post_balance_base_units": 0,
+          "delta_base_units": -1000000
+        },
+        {
+          "mint": "synthetic_mint_nova",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 2000000,
+          "delta_base_units": 2000000
+        }
+      ],
+      "fee_mint": "synthetic_mint_sol"
+    },
+    {
+      "fixture_record_id": "complete-missing-token-metadata",
+      "signature": "synthetic_signature_complete-missing-token-metadata",
+      "slot": 1094,
+      "timestamp_utc": "2025-12-03T00:00:00Z",
+      "status": "succeeded",
+      "instruction_index": 0,
+      "fee_base_units": 0,
+      "fee_payer": "synthetic_wallet_beta",
+      "fee_charged": false,
+      "instructions": [
+        {
+          "program": "synthetic_system",
+          "instruction_type": "transfer",
+          "mint": "synthetic_mint_missing_metadata",
+          "quantity_base_units": 1000000,
+          "counterparty_wallet_id": "synthetic_external_wallet_unknown_token"
+        }
+      ],
+      "token_balance_changes": [
+        {
+          "mint": "synthetic_mint_missing_metadata",
+          "pre_balance_base_units": 0,
+          "post_balance_base_units": 1000000,
+          "delta_base_units": 1000000
+        }
+      ]
+    }
+  ]
+}

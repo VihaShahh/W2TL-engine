@@ -1,0 +1,8 @@
+{
+  "fixture_set_id": "final_wallet_history",
+  "client_id": "synthetic_client_final_assessment",
+  "owned_wallet_ids": [
+    "synthetic_wallet_alpha",
+    "synthetic_wallet_beta"
+  ]
+}

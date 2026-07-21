@@ -1,0 +1,7 @@
+{
+  "contract_version": 1,
+  "fixture_set_id": "final_wallet_history",
+  "policy_id": "us_federal_assessment_fifo",
+  "policy_version": 1,
+  "valuation_currency": "USD"
+}

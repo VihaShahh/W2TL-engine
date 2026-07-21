@@ -1,0 +1,165 @@
+{
+  "fixture_set_id": "final_wallet_history",
+  "scenarios": [
+    {
+      "scenario_id": "foundational-buys",
+      "source_record_ids": [
+        "complete-buy-old-skito",
+        "complete-buy-sol-alpha",
+        "complete-buy-sol-beta",
+        "complete-buy-alpha-skito-01",
+        "complete-buy-alpha-skito-02",
+        "complete-buy-alpha-skito-03",
+        "complete-buy-alpha-skito-04",
+        "complete-buy-alpha-skito-05",
+        "complete-buy-alpha-skito-06",
+        "complete-buy-alpha-skito-07",
+        "complete-buy-alpha-skito-08",
+        "complete-buy-alpha-skito-09",
+        "complete-buy-alpha-skito-10",
+        "complete-buy-alpha-skito-11",
+        "complete-buy-tie-zulu",
+        "complete-buy-tie-alpha",
+        "complete-buy-beta-skito-01",
+        "complete-buy-beta-skito-02",
+        "complete-buy-beta-skito-03",
+        "complete-buy-beta-mystery"
+      ],
+      "purpose": "Create exact known-basis SKITO, SOL, and MYST inventory in both wallets.",
+      "naive_failure": "Collapsing acquisitions would lose dates, basis, and deterministic tie evidence.",
+      "expected_outcome": "Every accepted buy creates a distinct source-linked FIFO lot."
+    },
+    {
+      "scenario_id": "fifo-sales-and-holding",
+      "source_record_ids": [
+        "complete-sale-01",
+        "complete-sale-02",
+        "complete-sale-03",
+        "complete-sale-04",
+        "complete-sale-05",
+        "complete-sale-06",
+        "complete-sale-07",
+        "complete-sale-08",
+        "complete-sale-09",
+        "complete-sale-10",
+        "complete-sale-11",
+        "complete-sale-12",
+        "complete-sale-13",
+        "complete-sale-14",
+        "complete-sale-15",
+        "complete-sale-16",
+        "complete-sale-after-boundary",
+        "complete-sale-insufficient"
+      ],
+      "purpose": "Exercise partial, multi-lot, fee-adjusted, holding-boundary, and overdrawn sales.",
+      "naive_failure": "A naive average basis or greater-than-or-equal holding rule changes report rows.",
+      "expected_outcome": "Complete slices report separately and impossible inventory is excepted."
+    },
+    {
+      "scenario_id": "owned-wallet-transfers",
+      "source_record_ids": [
+        "complete-transfer-skito-span-out",
+        "complete-transfer-skito-span-in",
+        "complete-transfer-skito-second-out",
+        "complete-transfer-skito-second-in",
+        "complete-transfer-skito-return-out",
+        "complete-transfer-skito-return-in",
+        "complete-transfer-skito-third-out",
+        "complete-transfer-skito-third-in",
+        "complete-transfer-skito-return-two-out",
+        "complete-transfer-skito-return-two-in",
+        "complete-transfer-mystery-out",
+        "complete-transfer-mystery-in"
+      ],
+      "purpose": "Move known and unknown basis slices between the two owned wallets.",
+      "naive_failure": "Treating wallet views independently duplicates or disposes inventory.",
+      "expected_outcome": "Matched views create one movement with original basis and date lineage."
+    },
+    {
+      "scenario_id": "external-and-unknown-basis",
+      "source_record_ids": [
+        "complete-external-mystery-alpha",
+        "complete-external-mystery-beta",
+        "complete-external-in-01",
+        "complete-external-in-02",
+        "complete-external-in-03",
+        "complete-external-in-04",
+        "complete-external-in-05",
+        "complete-external-in-06",
+        "complete-external-out-01",
+        "complete-external-out-02",
+        "complete-sale-mixed-mystery"
+      ],
+      "purpose": "Preserve unknown inbound basis, mixed disposals, and outbound suspense.",
+      "naive_failure": "Using zero basis or ignoring suspense creates unsupported monetary output.",
+      "expected_outcome": "Known slices report while unknown dependencies remain exception-linked."
+    },
+    {
+      "scenario_id": "swaps-and-wraps",
+      "source_record_ids": [
+        "complete-swap-valued-01",
+        "complete-swap-valued-02",
+        "complete-swap-valued-03",
+        "complete-swap-valued-04",
+        "complete-swap-valued-05",
+        "complete-swap-valued-06",
+        "complete-swap-valued-07",
+        "complete-swap-valued-08",
+        "complete-swap-blocked-01",
+        "complete-swap-blocked-02",
+        "complete-swap-blocked-03",
+        "complete-swap-reverse",
+        "complete-wrap-supported",
+        "complete-wrap-ambiguous"
+      ],
+      "purpose": "Cover valued and blocked swaps plus supported and ambiguous wrapping.",
+      "naive_failure": "One-sided prices or assumed wrap equivalence fabricate basis continuity.",
+      "expected_outcome": "Exact agreeing swaps report; unsupported values and wraps remain explicit."
+    },
+    {
+      "scenario_id": "income-and-spam",
+      "source_record_ids": [
+        "complete-reward-01",
+        "complete-reward-02",
+        "complete-reward-03",
+        "complete-reward-04",
+        "complete-airdrop-01",
+        "complete-airdrop-02",
+        "complete-airdrop-03",
+        "complete-spam-01",
+        "complete-spam-02",
+        "complete-spam-03"
+      ],
+      "purpose": "Recognize exact reward and airdrop income while quarantining spam.",
+      "naive_failure": "Treating every receipt as zero or valid income misstates both income and inventory.",
+      "expected_outcome": "Valued income equals created-lot basis; spam creates no income row."
+    },
+    {
+      "scenario_id": "fees-and-failures",
+      "source_record_ids": [
+        "complete-fee-failure-01",
+        "complete-fee-failure-02",
+        "complete-fee-failure-03",
+        "complete-fee-failure-04",
+        "complete-fee-failure-05",
+        "complete-fee-failure-06"
+      ],
+      "purpose": "Exercise fee-only and failed events with charged and uncharged evidence.",
+      "naive_failure": "Processing reverted legs or dropping charged fees changes inventory.",
+      "expected_outcome": "Only proven charged fees survive failed transactions."
+    },
+    {
+      "scenario_id": "ordering-duplicates-and-invalid-evidence",
+      "source_record_ids": [
+        "complete-buy-old-skito-copy",
+        "complete-conflict-a",
+        "complete-conflict-b",
+        "complete-instruction-balance-conflict",
+        "complete-missing-token-metadata"
+      ],
+      "purpose": "Prove stable ties, identical duplicates, conflicts, and record quarantine.",
+      "naive_failure": "File-order selection would double count or accept contradictory facts.",
+      "expected_outcome": "Coverage marks every record resolved, secondary, or quarantined."
+    }
+  ]
+}

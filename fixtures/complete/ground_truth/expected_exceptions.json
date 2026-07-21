@@ -1,0 +1,927 @@
+{
+  "contract_version": 1,
+  "fixture_set_id": "final_wallet_history",
+  "policy_id": "us_federal_assessment_fifo",
+  "policy_version": 1,
+  "jurisdiction": "US",
+  "valuation_currency": "USD",
+  "basis_method": "FIFO",
+  "basis_scope": "wallet_and_mint",
+  "price_rule": "exact_timestamp",
+  "swap_valuation_rule": "require_agreeing_legs",
+  "holding_term_rule": "more_than_one_year",
+  "partial_output_rule": "report_complete_slices",
+  "outbound_rule": "suspense",
+  "spam_rule": "quarantine_unpriced",
+  "fee_rule": "event_context",
+  "rounding_rule": "half_even",
+  "report_decimal_places": 2,
+  "exceptions": [
+    {
+      "exception_id": "exc_0ff332e262b4e693f766",
+      "code": "unknown_external_inbound_basis",
+      "severity": "monetary_output_blocking",
+      "stage": "accounting",
+      "source_refs": [
+        {
+          "source_id": "src_ad7ef87bbc5a6e584606",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_alpha",
+          "fixture_record_id": "complete-external-in-03",
+          "signature": "synthetic_signature_complete-external-in-03"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "quantity_base_units",
+          "value": "750000"
+        }
+      ],
+      "reason": "Received quantity is known but its acquisition basis is not.",
+      "affected_outputs": [
+        "disposals.csv"
+      ],
+      "related_object_ids": [
+        "evt_e757aa9dc79cfdb6691c"
+      ],
+      "human_request": "Provide the original acquisition date, quantity, total basis, and supporting exchange or wallet records."
+    },
+    {
+      "exception_id": "exc_12aab86883757a9fd706",
+      "code": "unpriced_spam_airdrop",
+      "severity": "monetary_output_blocking",
+      "stage": "accounting",
+      "source_refs": [
+        {
+          "source_id": "src_8d2d41a2a97c0d3d1cb8",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_alpha",
+          "fixture_record_id": "complete-spam-03",
+          "signature": "synthetic_signature_complete-spam-03"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "category",
+          "value": "spam_airdrop"
+        },
+        {
+          "name": "mint",
+          "value": "synthetic_mint_spam"
+        },
+        {
+          "name": "price_source_ids",
+          "value": "none"
+        },
+        {
+          "name": "price_state",
+          "value": "missing"
+        },
+        {
+          "name": "quantity_base_units",
+          "value": "3"
+        }
+      ],
+      "reason": "The spam-candidate receipt has no defensible exact value.",
+      "affected_outputs": [
+        "income.csv"
+      ],
+      "related_object_ids": [
+        "cmp_ec96ae70f8c18e5c849c",
+        "evt_ffacd8c263ffdce7310a"
+      ],
+      "human_request": "Confirm whether the receipt is legitimate and provide classification and valuation evidence before recognizing income or opening spendable inventory."
+    },
+    {
+      "exception_id": "exc_13720c6429a0fd4265bf",
+      "code": "conflicting_duplicate_records",
+      "severity": "event_blocking",
+      "stage": "normalization",
+      "source_refs": [
+        {
+          "source_id": "src_6ba31ba0ab5467aae039",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_alpha",
+          "fixture_record_id": "complete-conflict-a",
+          "signature": "synthetic_signature_conflicting_pair"
+        },
+        {
+          "source_id": "src_bc7d3d8ee07ebe81c551",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_alpha",
+          "fixture_record_id": "complete-conflict-b",
+          "signature": "synthetic_signature_conflicting_pair"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "record_count",
+          "value": "2"
+        },
+        {
+          "name": "signature",
+          "value": "synthetic_signature_conflicting_pair"
+        }
+      ],
+      "reason": "The same wallet and signature contain contradictory economic facts.",
+      "affected_outputs": [
+        "disposals.csv",
+        "exceptions.json",
+        "income.csv"
+      ],
+      "related_object_ids": [],
+      "human_request": "Identify the authoritative wallet record and correct the conflict."
+    },
+    {
+      "exception_id": "exc_1708107e57812171baf7",
+      "code": "unknown_external_inbound_basis",
+      "severity": "monetary_output_blocking",
+      "stage": "accounting",
+      "source_refs": [
+        {
+          "source_id": "src_2aca4658deecf9435665",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_alpha",
+          "fixture_record_id": "complete-external-in-05",
+          "signature": "synthetic_signature_complete-external-in-05"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "quantity_base_units",
+          "value": "1250000"
+        }
+      ],
+      "reason": "Received quantity is known but its acquisition basis is not.",
+      "affected_outputs": [
+        "disposals.csv"
+      ],
+      "related_object_ids": [
+        "evt_0fa4dacccd9d8fa11b73"
+      ],
+      "human_request": "Provide the original acquisition date, quantity, total basis, and supporting exchange or wallet records."
+    },
+    {
+      "exception_id": "exc_1ae2e2773b26fa2fc936",
+      "code": "unknown_external_inbound_basis",
+      "severity": "monetary_output_blocking",
+      "stage": "accounting",
+      "source_refs": [
+        {
+          "source_id": "src_d4a098ada364d09267aa",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_beta",
+          "fixture_record_id": "complete-external-in-06",
+          "signature": "synthetic_signature_complete-external-in-06"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "quantity_base_units",
+          "value": "1500000"
+        }
+      ],
+      "reason": "Received quantity is known but its acquisition basis is not.",
+      "affected_outputs": [
+        "disposals.csv"
+      ],
+      "related_object_ids": [
+        "evt_e235fbef3bf3757dff10"
+      ],
+      "human_request": "Provide the original acquisition date, quantity, total basis, and supporting exchange or wallet records."
+    },
+    {
+      "exception_id": "exc_2bae0bff652933483d42",
+      "code": "unpriced_spam_airdrop",
+      "severity": "monetary_output_blocking",
+      "stage": "accounting",
+      "source_refs": [
+        {
+          "source_id": "src_51b08e36986f90425fc4",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_alpha",
+          "fixture_record_id": "complete-spam-01",
+          "signature": "synthetic_signature_complete-spam-01"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "category",
+          "value": "spam_airdrop"
+        },
+        {
+          "name": "mint",
+          "value": "synthetic_mint_spam"
+        },
+        {
+          "name": "price_source_ids",
+          "value": "none"
+        },
+        {
+          "name": "price_state",
+          "value": "missing"
+        },
+        {
+          "name": "quantity_base_units",
+          "value": "1"
+        }
+      ],
+      "reason": "The spam-candidate receipt has no defensible exact value.",
+      "affected_outputs": [
+        "income.csv"
+      ],
+      "related_object_ids": [
+        "cmp_d5decd677392c36da225",
+        "evt_370612b98d4e184f7262"
+      ],
+      "human_request": "Confirm whether the receipt is legitimate and provide classification and valuation evidence before recognizing income or opening spendable inventory."
+    },
+    {
+      "exception_id": "exc_3eef3daeb2131619f1c5",
+      "code": "unreconciled_source_record",
+      "severity": "event_blocking",
+      "stage": "normalization",
+      "source_refs": [
+        {
+          "source_id": "src_c644cb865108b06524e2",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_alpha",
+          "fixture_record_id": "complete-instruction-balance-conflict",
+          "signature": "synthetic_signature_complete-instruction-balance-conflict"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "normalization_error",
+          "value": "Instruction evidence does not reconcile with the synthetic_mint_skito balance delta."
+        }
+      ],
+      "reason": "Instruction and balance evidence cannot form one neutral event.",
+      "affected_outputs": [
+        "disposals.csv",
+        "exceptions.json",
+        "income.csv"
+      ],
+      "related_object_ids": [],
+      "human_request": "Provide reconciled instruction, token, and balance evidence."
+    },
+    {
+      "exception_id": "exc_443778d524b789f2d010",
+      "code": "unknown_external_inbound_basis",
+      "severity": "monetary_output_blocking",
+      "stage": "accounting",
+      "source_refs": [
+        {
+          "source_id": "src_cb710b465cc2b28b81c2",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_alpha",
+          "fixture_record_id": "complete-external-mystery-alpha",
+          "signature": "synthetic_signature_complete-external-mystery-alpha"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "quantity_base_units",
+          "value": "2000000"
+        }
+      ],
+      "reason": "Received quantity is known but its acquisition basis is not.",
+      "affected_outputs": [
+        "disposals.csv"
+      ],
+      "related_object_ids": [
+        "evt_3fb09ec7cb66a2023575"
+      ],
+      "human_request": "Provide the original acquisition date, quantity, total basis, and supporting exchange or wallet records."
+    },
+    {
+      "exception_id": "exc_4977eb75df0b7f5a921b",
+      "code": "unknown_basis_disposal_slice",
+      "severity": "monetary_output_blocking",
+      "stage": "accounting",
+      "source_refs": [
+        {
+          "source_id": "src_26d6ded36aada1fca385",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_beta",
+          "fixture_record_id": "complete-sale-mixed-mystery",
+          "signature": "synthetic_signature_complete-sale-mixed-mystery"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "allocated_proceeds_usd",
+          "value": "2.500"
+        },
+        {
+          "name": "originating_exception_id",
+          "value": "exc_e38594eebb98692a9561"
+        },
+        {
+          "name": "quantity_base_units",
+          "value": "500000"
+        }
+      ],
+      "reason": "This disposal slice has proceeds but no defensible basis.",
+      "affected_outputs": [
+        "disposals.csv"
+      ],
+      "related_object_ids": [
+        "evt_f8f6a5687e3530fc2e53",
+        "exc_e38594eebb98692a9561",
+        "lot_2e8c68e85abaec97bc3c"
+      ],
+      "human_request": "Provide acquisition and cost-basis evidence for this lot."
+    },
+    {
+      "exception_id": "exc_4c3b9207b8e6f85408be",
+      "code": "conflicting_swap_valuation",
+      "severity": "monetary_output_blocking",
+      "stage": "accounting",
+      "source_refs": [
+        {
+          "source_id": "src_a744de79430e9422aa2e",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_alpha",
+          "fixture_record_id": "complete-swap-blocked-02",
+          "signature": "synthetic_signature_complete-swap-blocked-02"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "given_mint",
+          "value": "synthetic_mint_skito"
+        },
+        {
+          "name": "given_price_source_ids",
+          "value": "price_complete-swap-blocked-02_skito_a,price_complete-swap-blocked-02_skito_b"
+        },
+        {
+          "name": "given_price_state",
+          "value": "conflict"
+        },
+        {
+          "name": "received_implied_value_usd",
+          "value": "4.00000000"
+        },
+        {
+          "name": "received_mint",
+          "value": "synthetic_mint_nova"
+        },
+        {
+          "name": "received_price_source_ids",
+          "value": "price_complete-swap-blocked-02_nova"
+        },
+        {
+          "name": "received_price_state",
+          "value": "found"
+        },
+        {
+          "name": "swap_valuation_rule",
+          "value": "require_agreeing_legs"
+        }
+      ],
+      "reason": "At least one swap leg has multiple exact price sources.",
+      "affected_outputs": [
+        "disposals.csv"
+      ],
+      "related_object_ids": [
+        "cmp_23e4736ba72f31bbd61c",
+        "cmp_7b79921413f927cf1f50",
+        "con_3486f7db7a81b86821fd",
+        "evt_533268fd2a307c6de7fa",
+        "price_complete-swap-blocked-02_nova",
+        "price_complete-swap-blocked-02_skito_a",
+        "price_complete-swap-blocked-02_skito_b"
+      ],
+      "human_request": "Resolve the conflicting exact price evidence for both swap assets."
+    },
+    {
+      "exception_id": "exc_4dd822c038866574357b",
+      "code": "one_sided_swap_valuation",
+      "severity": "monetary_output_blocking",
+      "stage": "accounting",
+      "source_refs": [
+        {
+          "source_id": "src_efd93def401443ae4fea",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_alpha",
+          "fixture_record_id": "complete-swap-blocked-01",
+          "signature": "synthetic_signature_complete-swap-blocked-01"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "given_implied_value_usd",
+          "value": "4.00000000"
+        },
+        {
+          "name": "given_mint",
+          "value": "synthetic_mint_skito"
+        },
+        {
+          "name": "given_price_source_ids",
+          "value": "price_complete-swap-blocked-01_skito"
+        },
+        {
+          "name": "given_price_state",
+          "value": "found"
+        },
+        {
+          "name": "received_mint",
+          "value": "synthetic_mint_nova"
+        },
+        {
+          "name": "received_price_source_ids",
+          "value": "none"
+        },
+        {
+          "name": "received_price_state",
+          "value": "missing"
+        },
+        {
+          "name": "swap_valuation_rule",
+          "value": "require_agreeing_legs"
+        }
+      ],
+      "reason": "Only one swap leg has an exact supported price.",
+      "affected_outputs": [
+        "disposals.csv"
+      ],
+      "related_object_ids": [
+        "cmp_9037f38de662d49d5487",
+        "cmp_957fdfbd8c359cbba742",
+        "con_b8be8fb83a43ca6d03f5",
+        "evt_5f8624c177be4c2d8154",
+        "price_complete-swap-blocked-01_skito"
+      ],
+      "human_request": "Provide the missing exact timestamp USD price for the other asset."
+    },
+    {
+      "exception_id": "exc_5a8e6199c6a38f7d8958",
+      "code": "unknown_outbound_purpose",
+      "severity": "monetary_output_blocking",
+      "stage": "accounting",
+      "source_refs": [
+        {
+          "source_id": "src_a78777f1dfebb3ca5a86",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_alpha",
+          "fixture_record_id": "complete-external-out-01",
+          "signature": "synthetic_signature_complete-external-out-01"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "quantity_base_units",
+          "value": "1000000"
+        }
+      ],
+      "reason": "Outbound units left spendable inventory without a proven tax purpose.",
+      "affected_outputs": [
+        "disposals.csv"
+      ],
+      "related_object_ids": [
+        "mov_4fdfa930153aeebd57fc"
+      ],
+      "human_request": "Confirm destination ownership and the purpose of this transfer."
+    },
+    {
+      "exception_id": "exc_619fea703b1d469d9c81",
+      "code": "unreconciled_source_record",
+      "severity": "event_blocking",
+      "stage": "normalization",
+      "source_refs": [
+        {
+          "source_id": "src_42818ff8149204ea6368",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_beta",
+          "fixture_record_id": "complete-missing-token-metadata",
+          "signature": "synthetic_signature_complete-missing-token-metadata"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "normalization_error",
+          "value": "No token metadata exists for mint synthetic_mint_missing_metadata."
+        }
+      ],
+      "reason": "Instruction and balance evidence cannot form one neutral event.",
+      "affected_outputs": [
+        "disposals.csv",
+        "exceptions.json",
+        "income.csv"
+      ],
+      "related_object_ids": [],
+      "human_request": "Provide reconciled instruction, token, and balance evidence."
+    },
+    {
+      "exception_id": "exc_8bf850d2271cdf6cd61e",
+      "code": "ambiguous_wrap_treatment",
+      "severity": "monetary_output_blocking",
+      "stage": "accounting",
+      "source_refs": [
+        {
+          "source_id": "src_bdae764e05f15b3c9537",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_beta",
+          "fixture_record_id": "complete-wrap-ambiguous",
+          "signature": "synthetic_signature_complete-wrap-ambiguous"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "destination_mint",
+          "value": "synthetic_mint_wrapped_skito"
+        },
+        {
+          "name": "destination_quantity_base_units",
+          "value": "500000"
+        },
+        {
+          "name": "fee_charged",
+          "value": "false"
+        },
+        {
+          "name": "program",
+          "value": "synthetic_wrap_program"
+        },
+        {
+          "name": "source_mint",
+          "value": "synthetic_mint_skito"
+        },
+        {
+          "name": "source_quantity_base_units",
+          "value": "1000000"
+        }
+      ],
+      "reason": "The evidence does not prove a supported same-owner one-to-one token transformation.",
+      "affected_outputs": [
+        "disposals.csv",
+        "income.csv"
+      ],
+      "related_object_ids": [
+        "cmp_2a8c103811268f15f258",
+        "cmp_fd377a5494d3b7bc1be2",
+        "evt_f57af15360a3c04c0cba"
+      ],
+      "human_request": "Provide the wrap program, token-pair mapping, exact one-to-one quantity, beneficial ownership, and fee treatment evidence."
+    },
+    {
+      "exception_id": "exc_8e7abad01800a19e117b",
+      "code": "missing_swap_valuation",
+      "severity": "monetary_output_blocking",
+      "stage": "accounting",
+      "source_refs": [
+        {
+          "source_id": "src_d70bfe8539f4c92fb786",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_alpha",
+          "fixture_record_id": "complete-swap-blocked-03",
+          "signature": "synthetic_signature_complete-swap-blocked-03"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "given_mint",
+          "value": "synthetic_mint_skito"
+        },
+        {
+          "name": "given_price_source_ids",
+          "value": "none"
+        },
+        {
+          "name": "given_price_state",
+          "value": "missing"
+        },
+        {
+          "name": "received_mint",
+          "value": "synthetic_mint_nova"
+        },
+        {
+          "name": "received_price_source_ids",
+          "value": "none"
+        },
+        {
+          "name": "received_price_state",
+          "value": "missing"
+        },
+        {
+          "name": "swap_valuation_rule",
+          "value": "require_agreeing_legs"
+        }
+      ],
+      "reason": "Neither swap leg has an exact supported price.",
+      "affected_outputs": [
+        "disposals.csv"
+      ],
+      "related_object_ids": [
+        "cmp_4fb57f28de94498c02b2",
+        "cmp_ee57b7f99636799a715b",
+        "con_d185e4ab442181c68940",
+        "evt_1b7581e8d0ab29798454"
+      ],
+      "human_request": "Provide exact timestamp USD prices for both swap assets."
+    },
+    {
+      "exception_id": "exc_b3be995fb643247cc33c",
+      "code": "insufficient_wallet_inventory",
+      "severity": "event_blocking",
+      "stage": "accounting",
+      "source_refs": [
+        {
+          "source_id": "src_bedfee3c7ccfbe793759",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_beta",
+          "fixture_record_id": "complete-sale-insufficient",
+          "signature": "synthetic_signature_complete-sale-insufficient"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "inventory_error",
+          "value": "synthetic_wallet_beta/synthetic_mint_skito needs 999000000 base units but has 22000000."
+        }
+      ],
+      "reason": "The operation would make wallet-and-mint inventory negative.",
+      "affected_outputs": [
+        "disposals.csv",
+        "income.csv"
+      ],
+      "related_object_ids": [
+        "evt_2c699d5fe139710bc4b3"
+      ],
+      "human_request": "Provide prior acquisition or inbound-transfer evidence."
+    },
+    {
+      "exception_id": "exc_b6432a7b4167418dbc9e",
+      "code": "identical_duplicate_record",
+      "severity": "warning",
+      "stage": "normalization",
+      "source_refs": [
+        {
+          "source_id": "src_47393673986a8a9815d1",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_alpha",
+          "fixture_record_id": "complete-buy-old-skito",
+          "signature": "synthetic_signature_complete-buy-old-skito"
+        },
+        {
+          "source_id": "src_68be6a952af79e6d7481",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_alpha",
+          "fixture_record_id": "complete-buy-old-skito-copy",
+          "signature": "synthetic_signature_complete-buy-old-skito"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "record_count",
+          "value": "2"
+        },
+        {
+          "name": "signature",
+          "value": "synthetic_signature_complete-buy-old-skito"
+        }
+      ],
+      "reason": "Equivalent same-wallet records represent one economic event.",
+      "affected_outputs": [
+        "exceptions.json"
+      ],
+      "related_object_ids": [
+        "evt_478419b72636ffaa0b25"
+      ],
+      "human_request": "No action is required unless the duplicate source was unexpected."
+    },
+    {
+      "exception_id": "exc_bde47df3e1cf535c49ee",
+      "code": "unknown_external_inbound_basis",
+      "severity": "monetary_output_blocking",
+      "stage": "accounting",
+      "source_refs": [
+        {
+          "source_id": "src_b28090ab46a173e113d7",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_beta",
+          "fixture_record_id": "complete-external-in-02",
+          "signature": "synthetic_signature_complete-external-in-02"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "quantity_base_units",
+          "value": "500000"
+        }
+      ],
+      "reason": "Received quantity is known but its acquisition basis is not.",
+      "affected_outputs": [
+        "disposals.csv"
+      ],
+      "related_object_ids": [
+        "evt_111e543681144972b8b5"
+      ],
+      "human_request": "Provide the original acquisition date, quantity, total basis, and supporting exchange or wallet records."
+    },
+    {
+      "exception_id": "exc_da5593da62b410917f07",
+      "code": "unknown_basis_disposal_slice",
+      "severity": "monetary_output_blocking",
+      "stage": "accounting",
+      "source_refs": [
+        {
+          "source_id": "src_26d6ded36aada1fca385",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_beta",
+          "fixture_record_id": "complete-sale-mixed-mystery",
+          "signature": "synthetic_signature_complete-sale-mixed-mystery"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "allocated_proceeds_usd",
+          "value": "5.000"
+        },
+        {
+          "name": "originating_exception_id",
+          "value": "exc_443778d524b789f2d010"
+        },
+        {
+          "name": "quantity_base_units",
+          "value": "1000000"
+        }
+      ],
+      "reason": "This disposal slice has proceeds but no defensible basis.",
+      "affected_outputs": [
+        "disposals.csv"
+      ],
+      "related_object_ids": [
+        "evt_f8f6a5687e3530fc2e53",
+        "exc_443778d524b789f2d010",
+        "lot_68acbfe5ee3bca5d0ede"
+      ],
+      "human_request": "Provide acquisition and cost-basis evidence for this lot."
+    },
+    {
+      "exception_id": "exc_df5a0d28657447e9ab3b",
+      "code": "unpriced_spam_airdrop",
+      "severity": "monetary_output_blocking",
+      "stage": "accounting",
+      "source_refs": [
+        {
+          "source_id": "src_5417e5dc52fb5610e359",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_beta",
+          "fixture_record_id": "complete-spam-02",
+          "signature": "synthetic_signature_complete-spam-02"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "category",
+          "value": "spam_airdrop"
+        },
+        {
+          "name": "mint",
+          "value": "synthetic_mint_spam"
+        },
+        {
+          "name": "price_source_ids",
+          "value": "none"
+        },
+        {
+          "name": "price_state",
+          "value": "missing"
+        },
+        {
+          "name": "quantity_base_units",
+          "value": "2"
+        }
+      ],
+      "reason": "The spam-candidate receipt has no defensible exact value.",
+      "affected_outputs": [
+        "income.csv"
+      ],
+      "related_object_ids": [
+        "cmp_ca5d2a56be2bd2771495",
+        "evt_beb644023ace941747b2"
+      ],
+      "human_request": "Confirm whether the receipt is legitimate and provide classification and valuation evidence before recognizing income or opening spendable inventory."
+    },
+    {
+      "exception_id": "exc_e38594eebb98692a9561",
+      "code": "unknown_external_inbound_basis",
+      "severity": "monetary_output_blocking",
+      "stage": "accounting",
+      "source_refs": [
+        {
+          "source_id": "src_e30a0a18884810ca61b4",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_beta",
+          "fixture_record_id": "complete-external-mystery-beta",
+          "signature": "synthetic_signature_complete-external-mystery-beta"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "quantity_base_units",
+          "value": "1000000"
+        }
+      ],
+      "reason": "Received quantity is known but its acquisition basis is not.",
+      "affected_outputs": [
+        "disposals.csv"
+      ],
+      "related_object_ids": [
+        "evt_b42dff3f9dadd081c327"
+      ],
+      "human_request": "Provide the original acquisition date, quantity, total basis, and supporting exchange or wallet records."
+    },
+    {
+      "exception_id": "exc_e8393492be103e50be76",
+      "code": "unknown_external_inbound_basis",
+      "severity": "monetary_output_blocking",
+      "stage": "accounting",
+      "source_refs": [
+        {
+          "source_id": "src_390a40924f6f29408611",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_alpha",
+          "fixture_record_id": "complete-external-in-01",
+          "signature": "synthetic_signature_complete-external-in-01"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "quantity_base_units",
+          "value": "250000"
+        }
+      ],
+      "reason": "Received quantity is known but its acquisition basis is not.",
+      "affected_outputs": [
+        "disposals.csv"
+      ],
+      "related_object_ids": [
+        "evt_09537583b15111f7d53e"
+      ],
+      "human_request": "Provide the original acquisition date, quantity, total basis, and supporting exchange or wallet records."
+    },
+    {
+      "exception_id": "exc_f0c0c21d792f61cf7054",
+      "code": "unknown_outbound_purpose",
+      "severity": "monetary_output_blocking",
+      "stage": "accounting",
+      "source_refs": [
+        {
+          "source_id": "src_247c70e209b06700bbe6",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_beta",
+          "fixture_record_id": "complete-external-out-02",
+          "signature": "synthetic_signature_complete-external-out-02"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "quantity_base_units",
+          "value": "1000000"
+        }
+      ],
+      "reason": "Outbound units left spendable inventory without a proven tax purpose.",
+      "affected_outputs": [
+        "disposals.csv"
+      ],
+      "related_object_ids": [
+        "mov_261bf952e94a3be4d235"
+      ],
+      "human_request": "Confirm destination ownership and the purpose of this transfer."
+    },
+    {
+      "exception_id": "exc_fac3a6e39518d0073e3b",
+      "code": "unknown_external_inbound_basis",
+      "severity": "monetary_output_blocking",
+      "stage": "accounting",
+      "source_refs": [
+        {
+          "source_id": "src_ae8c6b5f02d82d2308a8",
+          "fixture_set_id": "final_wallet_history",
+          "wallet_id": "synthetic_wallet_beta",
+          "fixture_record_id": "complete-external-in-04",
+          "signature": "synthetic_signature_complete-external-in-04"
+        }
+      ],
+      "observed_facts": [
+        {
+          "name": "quantity_base_units",
+          "value": "1000000"
+        }
+      ],
+      "reason": "Received quantity is known but its acquisition basis is not.",
+      "affected_outputs": [
+        "disposals.csv"
+      ],
+      "related_object_ids": [
+        "evt_1e3cfb7ad6662439c63a"
+      ],
+      "human_request": "Provide the original acquisition date, quantity, total basis, and supporting exchange or wallet records."
+    }
+  ]
+}

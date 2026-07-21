@@ -1,0 +1,365 @@
+{
+  "fixture_set_id": "final_wallet_history",
+  "consumptions": [
+    {
+      "consumption_id": "con_d1a59c12cf1fa5252c8c",
+      "disposal_event_id": "evt_fee_0e6cfc6c8b54f685ca46",
+      "lot_id": "lot_c60def0003f584a52220",
+      "quantity_base_units": 10000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "1.0000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_e4b3ab947ee1c4c91756",
+      "disposal_event_id": "evt_784cd3b6ef55aa84d7f7",
+      "lot_id": "lot_5a4e2b62db8d167bc12e",
+      "quantity_base_units": 3000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "6.0000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_1c5f6269e461b97b685a",
+      "disposal_event_id": "evt_899d5065b78a554ed3cc",
+      "lot_id": "lot_5a4e2b62db8d167bc12e",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.0000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_df2bfb0bd35752f33440",
+      "disposal_event_id": "evt_899d5065b78a554ed3cc",
+      "lot_id": "lot_077b75aac70eecda5cec",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.200000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_913209489206c1101349",
+      "disposal_event_id": "evt_cab54c2d2a45838ea71e",
+      "lot_id": "lot_077b75aac70eecda5cec",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.200000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_7f150dfb7d1fb638b2b5",
+      "disposal_event_id": "evt_d4d7eeb96b0d6de7043e",
+      "lot_id": "lot_077b75aac70eecda5cec",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.200000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_1e5880355dda5adfd978",
+      "disposal_event_id": "evt_fee_fe55c9b6c5540f1434e7",
+      "lot_id": "lot_c60def0003f584a52220",
+      "quantity_base_units": 10000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "0.9999999999999999999999999999",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_dcc238326cc15aab9500",
+      "disposal_event_id": "evt_389a9bcc547644fa68c6",
+      "lot_id": "lot_077b75aac70eecda5cec",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.200000000000000000000000001",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_4188b2b1f32d933ac7b8",
+      "disposal_event_id": "evt_62cba67e3b2422f607d9",
+      "lot_id": "lot_077b75aac70eecda5cec",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.200000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_c5d209d694bc61e40a7d",
+      "disposal_event_id": "evt_3ea485f749d77fb24d6b",
+      "lot_id": "lot_077b75aac70eecda5cec",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.200000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_8d83701e620c0066b305",
+      "disposal_event_id": "evt_36504c93a9c544ece8ab",
+      "lot_id": "lot_077b75aac70eecda5cec",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.200000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_0c8a9ab7ca9e4ac19334",
+      "disposal_event_id": "evt_a5b400bc19a68960ea8c",
+      "lot_id": "lot_077b75aac70eecda5cec",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.200000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_a6de9997c5b3bda262b9",
+      "disposal_event_id": "evt_96be8e84a47b1ac31316",
+      "lot_id": "lot_077b75aac70eecda5cec",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.200000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_7697922f55c955123ee9",
+      "disposal_event_id": "evt_4196d6abb42268bae2dd",
+      "lot_id": "lot_077b75aac70eecda5cec",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.200000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_b1c23b373a44870890c4",
+      "disposal_event_id": "evt_fd4902c3d089957fa5e7",
+      "lot_id": "lot_523d3cee35202a2ea89c",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.200",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_faa5027730f813da5627",
+      "disposal_event_id": "evt_949389790f6de4e8dd28",
+      "lot_id": "lot_523d3cee35202a2ea89c",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.200000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_f287ac582716947b61f8",
+      "disposal_event_id": "evt_5dc69a2f5eecf02b094d",
+      "lot_id": "lot_044ce0da620b3d97317c",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "3.00000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_a214585b43a999f4a099",
+      "disposal_event_id": "evt_f0fd2502c7a58ead4de6",
+      "lot_id": "lot_044ce0da620b3d97317c",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "3.000000000000000000000000001",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_b737a55a68d7d5b7dc42",
+      "disposal_event_id": "evt_5b3047bf68f75c983ea2",
+      "lot_id": "lot_044ce0da620b3d97317c",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "3.000000000000000000000000001",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_0d07a6b0a9f9f72dc402",
+      "disposal_event_id": "evt_25d32b5e98e6aa7db4f6",
+      "lot_id": "lot_044ce0da620b3d97317c",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "3.000000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_022e41c1b7f21324fa19",
+      "disposal_event_id": "evt_f8f6a5687e3530fc2e53",
+      "lot_id": "lot_2b55f2f91e80cf7fd72f",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "3.00",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_13cf8d4d42d8beb860ff",
+      "disposal_event_id": "evt_f8f6a5687e3530fc2e53",
+      "lot_id": "lot_68acbfe5ee3bca5d0ede",
+      "quantity_base_units": 1000000,
+      "basis_state": "unknown",
+      "consumed_basis_usd": null,
+      "basis_exception_id": "exc_443778d524b789f2d010"
+    },
+    {
+      "consumption_id": "con_0f0b42f2e51d8fa99b97",
+      "disposal_event_id": "evt_f8f6a5687e3530fc2e53",
+      "lot_id": "lot_2e8c68e85abaec97bc3c",
+      "quantity_base_units": 500000,
+      "basis_state": "unknown",
+      "consumed_basis_usd": null,
+      "basis_exception_id": "exc_e38594eebb98692a9561"
+    },
+    {
+      "consumption_id": "con_ecb2d0e6f9d2283d77c6",
+      "disposal_event_id": "evt_b17e2f697cd24bf754fc",
+      "lot_id": "lot_a9d96d2ae2131156736a",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.200000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_0c7d1d648d141e08ed50",
+      "disposal_event_id": "evt_e490665c49298382ed6b",
+      "lot_id": "lot_86c75a40b7d16b7b3409",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.300",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_73cca315740863c0e29a",
+      "disposal_event_id": "evt_549357344f848a278691",
+      "lot_id": "lot_86c75a40b7d16b7b3409",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.300000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_60ef8471c9b3855684a0",
+      "disposal_event_id": "evt_3508dc79f576a49490d5",
+      "lot_id": "lot_86c75a40b7d16b7b3409",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.300000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_9bf86fb9784895dc5ca8",
+      "disposal_event_id": "evt_18cc51be313b0b0f37ce",
+      "lot_id": "lot_86c75a40b7d16b7b3409",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.300000000000000000000000001",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_83e2c42ae4020c2c5d03",
+      "disposal_event_id": "evt_58204a748527ad33b5b4",
+      "lot_id": "lot_86c75a40b7d16b7b3409",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.300000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_9bd74a0a77e490221100",
+      "disposal_event_id": "evt_848c21320560c83f93de",
+      "lot_id": "lot_3578d8702e3799aa74ad",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.200000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_3c55fa0d6506f6a5e1f8",
+      "disposal_event_id": "evt_ee9727d58ea7bda61910",
+      "lot_id": "lot_3578d8702e3799aa74ad",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.200000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_b8be8fb83a43ca6d03f5",
+      "disposal_event_id": "evt_5f8624c177be4c2d8154",
+      "lot_id": "lot_86c75a40b7d16b7b3409",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.300000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_3486f7db7a81b86821fd",
+      "disposal_event_id": "evt_533268fd2a307c6de7fa",
+      "lot_id": "lot_86c75a40b7d16b7b3409",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.300000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_d185e4ab442181c68940",
+      "disposal_event_id": "evt_1b7581e8d0ab29798454",
+      "lot_id": "lot_86c75a40b7d16b7b3409",
+      "quantity_base_units": 1000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "2.300000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_084564f085ecd2cbe4c2",
+      "disposal_event_id": "evt_2d54344a51ebc83c3a9d",
+      "lot_id": "lot_4c3a0666151334e5fd0b",
+      "quantity_base_units": 2000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "4.00000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_cb17b5431e009562dfac",
+      "disposal_event_id": "evt_fee_eb33a2c96ad05a77082e",
+      "lot_id": "lot_c60def0003f584a52220",
+      "quantity_base_units": 10000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "1.000000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_d6b1d45a9a81ea8cc12f",
+      "disposal_event_id": "evt_fee_3b407f165545aaf96bb3",
+      "lot_id": "lot_c60def0003f584a52220",
+      "quantity_base_units": 10000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "1.000000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_2303a1fe9b788af5b90e",
+      "disposal_event_id": "evt_fee_f3b49ce858d34debd3b8",
+      "lot_id": "lot_0ceca6551e0ab7f6352e",
+      "quantity_base_units": 10000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "1.0000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_06295cd23bca91196798",
+      "disposal_event_id": "evt_fee_6f1bee46efc284afd640",
+      "lot_id": "lot_0ceca6551e0ab7f6352e",
+      "quantity_base_units": 10000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "1.000000000000000000000000000",
+      "basis_exception_id": null
+    },
+    {
+      "consumption_id": "con_838efb8db9207d7e2f76",
+      "disposal_event_id": "evt_fee_2231ffd40b27040ffd15",
+      "lot_id": "lot_c60def0003f584a52220",
+      "quantity_base_units": 10000000,
+      "basis_state": "known",
+      "consumed_basis_usd": "1.000000000000000000000000000",
+      "basis_exception_id": null
+    }
+  ]
+}

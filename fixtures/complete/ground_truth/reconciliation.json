@@ -1,0 +1,39 @@
+{
+  "fixture_set_id": "final_wallet_history",
+  "reconciliation": {
+    "stored_record_count": 96,
+    "valid_transaction_count": 96,
+    "logical_event_count": 85,
+    "coverage_counts": {
+      "quarantined": 4,
+      "resolved": 82,
+      "review_flagged": 3,
+      "secondary_view": 7
+    },
+    "classification_counts": {
+      "airdrop": 3,
+      "buy": 20,
+      "external_inbound": 8,
+      "external_outbound": 2,
+      "failed": 4,
+      "fee": 2,
+      "internal_transfer": 6,
+      "sell": 19,
+      "spam_airdrop": 3,
+      "staking_reward": 4,
+      "swap": 12,
+      "wrap": 2
+    },
+    "lot_count": 61,
+    "consumption_count": 40,
+    "movement_count": 10,
+    "ending_lot_count": 50,
+    "ending_quantity_base_units": 1579250006,
+    "ending_known_basis_usd": "491.6000000000000000000000000",
+    "ending_unknown_basis_quantity_base_units": 13250006,
+    "disposal_row_count": 35,
+    "income_row_count": 7,
+    "exception_count": 24,
+    "review_status": "hand_calculations_documented_in_fixture_readme"
+  }
+}

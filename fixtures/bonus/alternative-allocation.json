@@ -1,0 +1,38 @@
+{
+  "contract_version": 1,
+  "fixture_set_id": "bonus_alternative_allocation_v1",
+  "wallet_id": "synthetic_wallet_method_comparison",
+  "mint": "synthetic_mint_skito",
+  "symbol": "SKITO",
+  "decimals": 6,
+  "acquisitions": [
+    {
+      "record_id": "bonus-buy-old-low",
+      "timestamp_utc": "2024-01-01T00:00:00Z",
+      "quantity_base_units": 2000000,
+      "basis_usd": "4.00"
+    },
+    {
+      "record_id": "bonus-buy-new-high",
+      "timestamp_utc": "2025-01-01T00:00:00Z",
+      "quantity_base_units": 2000000,
+      "basis_usd": "10.00"
+    }
+  ],
+  "disposal": {
+    "record_id": "bonus-sale-method-comparison",
+    "timestamp_utc": "2025-02-01T00:00:00Z",
+    "quantity_base_units": 2000000,
+    "proceeds_usd": "14.00"
+  },
+  "specific_identification": [
+    {
+      "acquisition_record_id": "bonus-buy-old-low",
+      "quantity_base_units": 1000000
+    },
+    {
+      "acquisition_record_id": "bonus-buy-new-high",
+      "quantity_base_units": 1000000
+    }
+  ]
+}
