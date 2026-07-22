@@ -1,0 +1,194 @@
+# my notes / decision journal
+
+## where i started
+
+i knew normal accounting and reconciliation before this. crypto lots, solana instructions,
+mints etc, only at a basic level. I first thought the hard work will be parsing json and making
+a csv. not really. the hard work was knowing when a number is safe enough to put in a tax output.
+
+the brief is huge on purpose. so I used one rule for scope and for code: if I cant defend a
+number from evidence then it does not leave the engine. missing basis is not zero. missing price
+is not the closest price. an outbound transfer is not automatically a sale.
+
+I ranked the risks like this
+
+1. guessed basis, price, gain or income looking like a real answer
+2. transfer between my two owned wallets becoming a sale
+3. partial lots and fees breaking quantity or basis
+4. one unknown event quietly damaging later lots
+5. ground truth repeating the same bug as my code
+6. UI and bonus work taking time from the actual engine
+
+thats why I built a small buy and sell path first. then transfers and lot splits. then the
+remaining event types, reports and the bigger fixture. not everything in parallel.
+
+## what the fixture means
+
+there are 96 stored records but 85 logical events. this is not a mismatch. an internal transfer
+can be seen in both wallet histories, still one economic event.
+
+SKITO means Skibidi Token. just a fake token symbol I invented for the examples. like a fake ticker. a mint is the
+token identifier used on Solana, software should use the mint to tell tokens apart because a
+symbol can be copied. all mints here are obviously synthetic, no real wallet or real token.
+
+the full run currently gives 35 disposal rows, 7 income rows and 24 exceptions. exceptions are
+expected here. they mean the engine refused to pretend it knew something.
+
+## where I went deep
+
+lot accounting first. the easy case is one known lot and one sale. the case I cared about is a
+sale crossing multiple lots where one lot has unknown basis. I report the complete slices,
+keep the unresolved quantity, and link it to the original exception. no made up total gain.
+
+internal transfers also took time. I dont match only on signature. ownership, mint, quantity,
+direction and time also need to agree. when it matches, the original basis and acquisition date
+move to the other wallet. no proceeds and no income. if this goes wrong the later report can look
+perfectly normal but be very wrong.
+
+then verification. expected classifications, lots, movements, consumptions, reports and
+exceptions live with the fixture. I compare more than just one final total. and run twice to
+check output bytes. deterministic is not the same as correct, but nondeterministic accounting
+would be a separate problem.
+
+## what I actually built
+
+Python 3.11+ engine, offline for the graded path. it loads two synthetic wallets for one client,
+normalizes the records, classifies or excepts every source record, applies wallet scoped FIFO,
+reconciles and writes:
+
+- disposals.csv, Form 8949 shaped complete slices
+- income.csv, valued rewards and normal airdrops
+- exceptions.json, what was seen, why it is blocked and what a human should provide
+
+events include buys, sales, swaps, transfer in/out, internal transfer, reward, normal and spam
+airdrop, fees, failed tx, wraps, duplicates, timestamp ties, missing price, unknown basis,
+conflicting evidence and insufficient inventory.
+
+money uses Decimal from strings. token quantity stays integer base units. float input gets
+rejected.
+
+I kept FIFO as the required result. also a separate comparison for HIFO and specific id. the
+point was not just showing another tax number. it proves all three can share the same mutation
+and conservation code and only choose lots differently.
+
+the local frontend is also kept. read only, presentation only. it asks Python for results and
+does not calculate basis or gain in javascript. no frontend test suite in the final repo, that
+was a scope choice. the public Solana page is an observation tool, not a real tax mode.
+
+## choices where the brief was thin
+
+- exact mint + UTC timestamp + USD price only. no nearest price or interpolation
+- inventory is per wallet and mint, never one client pool
+- owned transfer carries lot date, basis and lineage
+- unknown inbound creates unknown basis inventory, not zero basis
+- complete slices can report only if parent quantity and proceeds still reconcile
+- unknown outbound purpose goes to suspense, not assumed sale/gift/payment
+- swap needs both exact leg values and they need to agree
+- valued reward or airdrop creates income and equal lot basis
+- unpriced spam stays quarantined without fake income
+- proven third-token fee is a separate linked disposal
+- failed economic legs do not mutate lots, a proven charged fee still can
+- one-to-one same-owner synthetic wrap carries continuity, ambiguous wrap gets excepted
+engineering positions for this assessment. not saying these are universal tax advice.
+
+## architecture choice
+
+the part I like is two separate extension directions.
+
+TaxLotLedger owns mutation, splits, movement and conservation. FIFO, HIFO and specific id only
+decide which eligible lot comes next. country_US owns the US shaped report. evidence and lot
+mechanics stay neutral.
+
+so another country doesnt need to copy ingestion and accounting. and another lot method doesnt
+need to copy report rules. no giant plugin framework though. just seams where I already had a
+real second behavior.
+
+storage is deliberately open. plain Python is enough for this offline run. ORM models could
+later hold evidence, ownership, reviewer exceptions, approvals and audit history. raw SQL could
+help for bulk imports or heavy reconciliation after profiling. I would keep tax decisions and
+unknown-value rules in readable domain code. database defaults should never turn missing basis
+into a number.
+
+## what I cut
+
+stablecoin aggregation, treasury ownership workpaper and broker reconciliation. I did explore
+them but they were too shallow compared to the core. keeping every experiment makes the project
+look bigger, not necessarily better.
+
+also cut real private data, keys, paid price APIs, automatic ownership guessing, arbitrary
+wallet import, authentication, multi client storage, transaction editing, approvals and filing.
+big missing pieces, intentionally.
+
+frontend stays, but no browser/playwright tests. the core tests still do the serious accounting
+verification.
+
+## can this run real transaction data
+
+not end to end. the accounting part is reusable but the current fixture loader expects synthetic
+ids, two owned wallets, fixture price evidence, scenario catalog and ground truth. giving it a
+random real export should fail rather than look supported.
+
+the public RPC code is narrow. bounded retrieval, provenance and unsupported transaction output.
+it does not prove beneficial ownership, complete history, prices, opening basis or all SPL/DEX
+behavior. so public observation, yes. complete real-wallet tax report, no.
+
+for production I still need real RPC and exchange adapters, SPL token and inner instruction
+decoding, DEX/staking/NFT/bridge rules, effective dated ownership, replayable prices, multi wallet
+and multi chain ids, incremental imports, reorg handling, review workflow, access control,
+monitoring, scale tests and independent tax review. quite a lot.
+
+my next real slice would be captured System Program and SPL token responses going through the
+same evidence boundary. captured so tests dont depend on a free endpoint. unsupported programs
+still visible.
+
+## if a third wallet or another chain appears
+
+ledger can store another wallet id, loader currently refuses it because this fixture contract is
+exactly two. I would relax that contract, add effective ownership and make transfer matching work
+with more candidates.
+
+another chain changes account identity, asset identity, ordering, fees, finality and raw decoder.
+a bridge needs explicit source/destination evidence and policy. same amount near the same time is
+not enough evidence to carry basis.
+
+## decision journal
+
+1. Python because Decimal, JSON, CSV, typing and fast tests fitted the timebox.
+2. raw evidence stays separate from normalized events. dont rewrite what source said.
+3. transfer matching before broad classification, otherwise false sale + unknown inbound.
+4. explicit unknown states. None, blank and zero are too easy to mix up.
+5. stable ids and tie breakers because file order should not change FIFO.
+6. shared ledger mutation, allocation method only selects.
+7. country report outside evidence and lot mechanics.
+8. fixture cases are part of design, not filler for record count.
+9. first ground truth idea reused too much production logic. circular, so rejected.
+10. AI helped list edge cases and draft repetitive tests. it also pushed too much breadth and
+    very polished robot sounding docs. had to cut and rewrite.
+11. frontend can help show the work but it stays outside tax calculations.
+12. I trust reconciliation + lineage + expected facts more than one passing total.
+
+## where AI helped and hurt
+
+helped with edge-case lists, repetitive fixtures, test starting points, comparing module
+boundaries. also useful to ask "what if this evidence conflicts" again and again. Helped a lot in docuemntation
+and creating the demo frontend.
+
+hurt with overbuilding. extra abstractions, extra documents, stretch features looking more done
+than they really were.
+final pass was mostly removing things and saying limits properly.
+
+## if I had another day
+
+i would make one real but replayable ingestion path. captured System Program and SPL-token
+transactions, inner instruction and balance provenance, then supported events through ownership,
+price, FIFO, reports and exceptions. no live endpoint dependency in tests. unsupported shapes
+stay unsupported instead of a direction based guess.
+
+then a versioned audit manifest with input hashes, ownership evidence, price evidence, policy,
+classifications, lot lineage, reconciliation, output hashes and unresolved exceptions. after
+that bigger history tests and incremental replay. not another UI screen first.
+
+## one thing not asked in the brief
+an exception impact graph. one missing inbound basis can block many later disposals. graph would
+show those dependencies and help reviewer ask for the document with biggest effect first. it
+uses lineage only, doesnt estimate the missing value.
