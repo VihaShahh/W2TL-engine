@@ -14,7 +14,11 @@ class ReconciliationError(RuntimeError):
 
 @dataclass(frozen=True, slots=True)
 class ReconciliationResult:
-    """Counts proving the objects checked at the report boundary."""
+    """Counts of accounting objects that passed report-boundary checks.
+
+    The result proves reconciliation ran over the stated population; policy correctness still
+    relies on reviewed ground truth, scenario tests, and domain invariants.
+    """
 
     lot_count: int
     consumption_count: int
@@ -38,6 +42,8 @@ def reconcile_run(
     if len(lots_by_id) != len(lots):
         raise ReconciliationError("Lot IDs are not unique.")
 
+    # First validate every lot as a possible before/after accounting state. Known basis can only
+    # decrease from its supported starting total; unknown basis must never become numeric.
     for lot in lots:
         if not 0 <= lot.remaining_quantity_base_units <= lot.starting_quantity_base_units:
             raise ReconciliationError(
@@ -70,6 +76,8 @@ def reconcile_run(
     if len({item.movement_id for item in movements}) != len(movements):
         raise ReconciliationError("Movement IDs are not unique.")
 
+    # Build an independent explanation of each source lot's decreases. Later we compare these
+    # consumptions and movements with starting minus remaining state for exact conservation.
     quantity_decreases: dict[str, int] = {}
     basis_decreases: dict[str, Decimal] = {}
     for consumption in consumptions:
@@ -90,6 +98,8 @@ def reconcile_run(
                 basis_decreases.get(consumption.lot_id, Decimal(0)) + consumed_basis
             )
 
+    # A movement is a paired source decrease and destination child creation. The child must carry
+    # acquisition and basis rather than manufacturing a new client-wide acquisition.
     movement_destinations: set[str] = set()
     for movement in movements:
         source_lot = lots_by_id.get(movement.source_lot_id)
@@ -130,6 +140,7 @@ def reconcile_run(
                 basis_decreases.get(source_lot.lot_id, Decimal(0)) + moved_basis
             )
 
+    # No lot may lose quantity or known basis without one of the explanations accumulated above.
     for lot in lots:
         expected_decrease = (
             lot.starting_quantity_base_units - lot.remaining_quantity_base_units
@@ -150,6 +161,8 @@ def reconcile_run(
     if len({row.disposal_id for row in disposals}) != len(disposals):
         raise ReconciliationError("Disposal row IDs are not unique.")
 
+    # Report rows are projections of consumptions, not a second accounting system. Enforce the
+    # gain equation and require one-to-one quantity, basis, lot, wallet, mint, and date lineage.
     seen_consumptions: set[str] = set()
     for disposal_row in disposals:
         if disposal_row.quantity_base_units <= 0:
@@ -208,6 +221,8 @@ def reconcile_run(
 
     if len({row.income_id for row in income}) != len(income):
         raise ReconciliationError("Income row IDs are not unique.")
+    # Recognized receipt value becomes the received property's starting basis. Checking that link
+    # prevents current income and a future disposal from using inconsistent dollar amounts.
     for income_row in income:
         for field_name, value in (
             ("quantity", income_row.quantity),

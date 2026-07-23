@@ -25,6 +25,8 @@ def test_unsupported_contract_is_rejected(actual: object) -> None:
 def test_domain_contracts_are_immutable() -> None:
     token = TokenMetadata(mint="synthetic_mint_skito", symbol="SKITO", decimals=6)
 
+    # Token decimals affect base-unit conversion by powers of ten. Frozen evidence prevents a
+    # later stage from rewriting the loaded contract to make an accounting result fit.
     with pytest.raises(FrozenInstanceError):
         token.decimals = 9  # type: ignore[misc]
 
@@ -32,6 +34,7 @@ def test_basis_factories_create_valid_known_and_unknown_states() -> None:
     known = Basis.known(Decimal("12.50"))
     unknown = Basis.unknown("exc_missing_basis")
 
+    # Unknown basis must expose its evidence request, never a numeric placeholder usable as zero.
     assert known.state is EvidenceState.KNOWN
     assert known.require_total_usd() == Decimal("12.50")
     assert unknown.state is EvidenceState.UNKNOWN
@@ -52,6 +55,8 @@ def test_acquisition_factories_create_valid_known_and_unknown_states() -> None:
     known = Acquisition.known(timestamp)
     unknown = Acquisition.unknown(timestamp, "exc_missing_date")
 
+    # The observation time can order unresolved inventory, but it is not a supported acquisition
+    # date and therefore cannot be used to calculate a holding term.
     assert known.require_timestamp_utc() == timestamp
     assert known.sort_timestamp_utc == timestamp
     assert unknown.sort_timestamp_utc == timestamp

@@ -1,4 +1,8 @@
-"""Immutable disposal, income, and independent ground-truth contracts."""
+"""Immutable disposal, income, and independent ground-truth contracts.
+
+These values sit at the report boundary and retain upstream identity. Writers may format them,
+but presentation cannot mutate the accounting facts to make an incomplete row look complete.
+"""
 
 from __future__ import annotations
 
@@ -14,6 +18,12 @@ from engine.models.states import HoldingTerm
 
 @dataclass(frozen=True, slots=True)
 class GroundTruth:
+    """Reviewed expectations for classifications, inventory, reports, and exceptions.
+
+    Tests compare multiple intermediate layers because a correct total can hide the wrong lot,
+    wallet, acquisition date, or lineage.
+    """
+
     metadata: GroundTruthMetadata
     classifications: tuple[Classification, ...]
     expected_lots: tuple[Lot, ...]
@@ -24,7 +34,11 @@ class GroundTruth:
 
 @dataclass(frozen=True, slots=True)
 class DisposalRow:
-    """Complete 8949-shaped row for one defensible consumed lot slice."""
+    """Complete 8949-shaped row for one defensible consumed lot slice.
+
+    One parent sale may yield several rows when it consumes lots with different dates or basis.
+    Every row keeps source, event, lot, and consumption identity for review.
+    """
 
     disposal_id: str
     event_id: str
@@ -45,6 +59,12 @@ class DisposalRow:
 
 @dataclass(frozen=True, slots=True)
 class IncomeRow:
+    """Jurisdiction-shaped valued receipt with price and created-lot lineage.
+
+    The row remains separate from neutral ``Income`` so another country adapter can map the same
+    accounting facts without inheriting this output shape.
+    """
+
     income_id: str
     event_id: str
     source_id: str

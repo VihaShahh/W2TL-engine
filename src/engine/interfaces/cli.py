@@ -7,6 +7,8 @@ import sys
 from collections.abc import Sequence
 from pathlib import Path
 
+from engine.interfaces.explain import ExplainRenderer
+
 
 def _add_policy_arguments(parser: argparse.ArgumentParser) -> None:
     from engine.policy.config import US_FIFO_POLICY
@@ -107,8 +109,19 @@ def main(argv: Sequence[str] | None = None) -> int:
             select_policy,
         )
 
+        renderer = (
+            ExplainRenderer(
+                fixtures_dir=args.fixtures,
+                output_dir=args.output,
+                stream=sys.stdout,
+            )
+            if args.command == "explain"
+            else None
+        )
+        if renderer is not None:
+            renderer.start()
         try:
-            trace = print if args.command == "explain" else None
+            trace = renderer.trace if renderer is not None else None
             policy = select_policy(
                 policy_id=args.policy_id,
                 policy_version=args.policy_version,
@@ -127,12 +140,20 @@ def main(argv: Sequence[str] | None = None) -> int:
         ) as error:
             print(f"Run failed: {error}", file=sys.stderr)
             return 1
-        print(
-            f"Wrote {result.disposal_count} disposal row(s), "
-            f"{result.income_count} income row(s), and "
-            f"{result.exception_count} exception(s) to {args.output}."
-        )
-        print("Reconciliation passed.")
+        if renderer is not None:
+            renderer.complete(
+                disposal_count=result.disposal_count,
+                income_count=result.income_count,
+                exception_count=result.exception_count,
+                reconciliation_passed=result.reconciliation_passed,
+            )
+        else:
+            print(
+                f"Wrote {result.disposal_count} disposal row(s), "
+                f"{result.income_count} income row(s), and "
+                f"{result.exception_count} exception(s) to {args.output}."
+            )
+            print("Reconciliation passed.")
         return 0
     if args.command == "serve":
         from engine.interfaces.web import serve

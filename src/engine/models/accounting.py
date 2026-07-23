@@ -1,4 +1,9 @@
-"""Immutable basis, acquisition, inventory, and multi-leg accounting results."""
+"""Immutable basis, acquisition, inventory, and multi-leg accounting results.
+
+The ledger replaces frozen values when inventory changes instead of letting unrelated services
+edit shared objects in place. Known and unknown facts are modeled as valid states so missing
+evidence cannot leak into arithmetic as a sentinel zero.
+"""
 
 from __future__ import annotations
 
@@ -19,7 +24,11 @@ from engine.models.states import (
 
 @dataclass(frozen=True, slots=True)
 class Basis:
-    """Exact basis or an exception-backed unknown state."""
+    """Exact total basis or an exception-backed unknown state.
+
+    The tagged representation makes absence of evidence impossible to confuse with USD 0. Callers
+    must prove the known state before obtaining a numeric amount.
+    """
 
     state: EvidenceState
     total_usd: Decimal | None = None
@@ -57,7 +66,11 @@ class Basis:
 
 @dataclass(frozen=True, slots=True)
 class Acquisition:
-    """Known acquisition time or exception-backed observation evidence."""
+    """Known original acquisition time or exception-backed observation evidence.
+
+    Unknown original acquisition remains distinct from the time an external inbound was first
+    observed, because using the observation time could silently change holding term.
+    """
 
     state: EvidenceState
     timestamp_utc: datetime | None = None
@@ -114,7 +127,11 @@ class Acquisition:
 
 @dataclass(frozen=True, slots=True)
 class Lot:
-    """Wallet-and-mint inventory with exact remaining quantity and lineage."""
+    """One wallet-and-mint inventory parcel with quantity, basis, and lineage.
+
+    Starting fields retain what entered the lot; remaining fields hold current availability.
+    Parent identity traces transferred or converted child inventory to its source lot.
+    """
 
     lot_id: str
     wallet_id: str
@@ -131,6 +148,12 @@ class Lot:
 
 @dataclass(frozen=True, slots=True)
 class LotConsumption:
+    """One disposal's exact quantity and basis decrease from a source lot.
+
+    A multi-lot disposal creates one consumption per slice so report rows can retain distinct
+    acquisition dates, basis values, and lineage.
+    """
+
     consumption_id: str
     disposal_event_id: str
     lot_id: str
@@ -139,7 +162,11 @@ class LotConsumption:
 
 @dataclass(frozen=True, slots=True)
 class SpecificLotSelection:
-    """One explicit source-lot quantity requested for a disposal."""
+    """One explicit source-lot quantity requested for a disposal.
+
+    The small value object validates each positive slice before the enclosing manifest checks
+    event, wallet, mint, and total selection consistency.
+    """
 
     lot_id: str
     quantity_base_units: int
@@ -155,7 +182,11 @@ class SpecificLotSelection:
 
 @dataclass(frozen=True, slots=True)
 class SpecificIdentificationManifest:
-    """Explicit wallet, mint, event, lot, and quantity selections with no fallback."""
+    """Explicit wallet, mint, event, lot, and quantity selections with no fallback.
+
+    Binding selections to their disposal context prevents valid lot IDs from being reused for a
+    different wallet or asset and mistaken for adequate identification.
+    """
 
     disposal_event_id: str
     wallet_id: str
@@ -175,7 +206,11 @@ class SpecificIdentificationManifest:
 
 @dataclass(frozen=True, slots=True)
 class Swap:
-    """Linked accounting components produced from one parent swap event."""
+    """Linked disposal, acquisition, valuation, and fee results for one swap.
+
+    Keeping both token legs under one parent prevents the outgoing consumption and received lot
+    from drifting into unrelated accounting outcomes when valuation is blocked.
+    """
 
     valuation_state: EvidenceState
     event_id: str
@@ -216,7 +251,11 @@ class Swap:
 
 @dataclass(frozen=True, slots=True)
 class Fee:
-    """A proven charged fee, its valuation, inventory use, and event-context treatment."""
+    """A proven charged fee, its valuation, inventory use, and context treatment.
+
+    The model links the fee's own token consumption to a single acquisition, disposal, failed,
+    standalone, or unsupported treatment so value cannot be applied twice.
+    """
 
     valuation_state: EvidenceState
     context: FeeContext
@@ -261,7 +300,11 @@ class Fee:
 
 @dataclass(frozen=True, slots=True)
 class Income:
-    """Jurisdiction-neutral valued receipt and its created inventory lot."""
+    """Jurisdiction-neutral valued receipt and its created inventory lot.
+
+    Fair value and created-lot identity stay together so reconciliation can prove recognized
+    income becomes equal starting basis for the received property.
+    """
 
     event_id: str
     source_id: str
@@ -277,7 +320,11 @@ class Income:
 
 @dataclass(frozen=True, slots=True)
 class Wrap:
-    """Supported continuity movement or exception-backed ambiguous transformation."""
+    """Supported continuity movement or exception-backed ambiguous transformation.
+
+    The type preserves observed source and destination legs without asserting that every wrap is
+    non-taxable; only the selected one-to-one policy path carries basis and date.
+    """
 
     event_id: str
     source_leg: TokenLeg
@@ -292,7 +339,11 @@ class Wrap:
 
 @dataclass(frozen=True, slots=True)
 class LotMovement:
-    """Inventory moved without a sale while retaining its source-lot lineage."""
+    """Inventory moved without a sale while retaining source-lot lineage.
+
+    Recording source and destination lots, wallets, basis, quantity, event, and state lets
+    reconciliation prove that movement relocated inventory rather than creating or deleting it.
+    """
 
     movement_id: str
     event_id: str

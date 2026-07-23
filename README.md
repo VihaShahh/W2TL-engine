@@ -7,7 +7,7 @@ The central rule is simple: a guessed number never leaves the engine. Missing ba
 ownership, purpose, or classification evidence remains an explicit state and, when it blocks an
 output, becomes a structured exception.
 
-## Run it
+## Install it
 
 Python 3.11 or newer is required. The engine has no third-party runtime dependency and the core
 run uses no network, key, account, database, or external price service.
@@ -15,6 +15,37 @@ run uses no network, key, account, database, or external price service.
 ```bash
 python3 -m venv .venv
 .venv/bin/python -m pip install -e .
+```
+
+## Run the engine with the frontend
+
+The recommended demo command starts both parts of the application: the Python backend and the
+browser frontend. There is no separate Node, npm, or frontend development server to start.
+
+From the repository root, run:
+
+```bash
+.venv/bin/wallet-tax-engine serve \
+  --fixtures fixtures/complete \
+  --host 127.0.0.1 \
+  --port 4173
+```
+
+Keep that terminal open, then visit `http://127.0.0.1:4173` in a browser. The server provides
+the HTML, CSS, and JavaScript from `frontend/`, exposes the local `/api/demo` and `/api/process`
+endpoints, and runs the real Python accounting pipeline when the report is requested. Open
+`http://127.0.0.1:4173/solana.html` for the separate bounded public-Solana observation page.
+Press `Ctrl+C` in the terminal to stop both the backend and frontend.
+
+The main report is fully offline. The Solana observation page is optional and requires network
+access to the configured public RPC endpoint. It does not feed its observations into the
+verified synthetic tax report.
+
+## Run only the command-line report
+
+To write the three report files without opening the frontend, run:
+
+```bash
 .venv/bin/wallet-tax-engine run \
   --fixtures fixtures/complete \
   --output output/complete \
@@ -41,23 +72,6 @@ For a stage-by-stage trace of the same real pipeline:
   --fixtures fixtures/complete \
   --output output/explain
 ```
-
-## Open the local workbench
-
-The frontend is a dependency-free local viewer backed by the Python engine. It does not
-classify events, select lots, or calculate tax values in JavaScript.
-
-```bash
-.venv/bin/wallet-tax-engine serve \
-  --fixtures fixtures/complete \
-  --host 127.0.0.1 \
-  --port 4173
-```
-
-Open `http://127.0.0.1:4173`. The report page renders source-backed fixture and Form
-8949-shaped data. The Solana page can make a bounded, read-only public RPC observation; that
-observation is kept separate from the verified synthetic tax run and is not presented as a
-complete real-wallet tax report.
 
 ## What is implemented
 

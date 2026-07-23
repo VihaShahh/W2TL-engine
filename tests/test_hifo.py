@@ -108,6 +108,8 @@ def test_hifo_changes_only_selected_lot_and_derived_basis() -> None:
     fifo, fifo_consumption, fifo_row = _project(FifoLedger())
     hifo, hifo_consumption, hifo_row = _project(HifoLedger())
 
+    # HIFO is deliberately a selection specialization. If it overrides mutation methods, it can
+    # drift from FIFO's splitting, movement, and conservation invariants.
     assert not {
         "acquire",
         "acquire_unknown",
@@ -118,6 +120,8 @@ def test_hifo_changes_only_selected_lot_and_derived_basis() -> None:
     } & HifoLedger.__dict__.keys()
     assert fifo.method == "FIFO"
     assert hifo.method == "HIFO"
+    # Both projections dispose the same quantity for the same proceeds. Only the selected lot and
+    # its derived basis and gain are expected to differ.
     assert fifo_consumption.lot_id != hifo_consumption.lot_id
     assert fifo_consumption.consumed_basis.require_total_usd() == Decimal("4")
     assert hifo_consumption.consumed_basis.require_total_usd() == Decimal("10")
@@ -159,6 +163,8 @@ def test_hifo_uses_acquisition_then_lot_id_for_exact_unit_basis_ties() -> None:
 
     consumption = ledger.consume(sale)[0]
 
+    # Equal unit basis and acquisition time need a content-stable final tie-breaker; otherwise
+    # fixture or database iteration order could change the selected lot.
     assert consumption.lot_id == min(first.lot_id, second.lot_id)
     assert consumption.consumed_basis.require_total_usd() == Decimal("4")
 
@@ -186,6 +192,8 @@ def test_hifo_unknown_basis_fails_before_inventory_mutation() -> None:
     )
     before = ledger.all_lots()
 
+    # Assigning unknown basis a zero or infinite rank would invent selection evidence. The failure
+    # must be atomic, which the unchanged before-state and empty consumptions prove below.
     with pytest.raises(UnrankableHifoBasisError, match=unknown.lot_id):
         ledger.consume(
             _event(

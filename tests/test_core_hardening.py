@@ -32,6 +32,8 @@ def _read_csv(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(source_file))
 
 class CapturingLedger(FifoLedger):
+    """Capture the real FIFO projection without modifying production ledger behavior."""
+
     latest: ClassVar[CapturingLedger | None] = None
 
     def __init__(self) -> None:
@@ -60,6 +62,8 @@ def test_complete_scenarios_document_every_named_naive_failure() -> None:
 def test_normalized_events_remain_free_of_report_and_lot_fields() -> None:
     neutral_fields = {field.name for field in fields(NormalizedEvent)}
 
+    # Normalization describes source facts. Keeping downstream money and lot fields out prevents
+    # the evidence layer from embedding a U.S. report or allocation decision.
     assert neutral_fields.isdisjoint(
         {
             "consumption_id",
@@ -105,6 +109,7 @@ def test_us_adapter_does_not_mutate_complete_accounting_projection(tmp_path: Pat
         ledger=ledger,
     )
 
+    # A report adapter may read lot lineage but cannot “repair” inventory to complete a row.
     assert rows
     assert (ledger.all_lots(), ledger.all_consumptions(), ledger.all_movements()) == before
 
@@ -142,6 +147,8 @@ def test_every_complete_result_has_valid_source_lineage(tmp_path: Path) -> None:
         consumption.consumption_id for consumption in ledger.all_consumptions()
     }
 
+    # Walk every boundary from source to events, lots, movements, consumptions, and output rows.
+    # This catches valid-looking numbers whose supporting identity chain is broken.
     assert {entry.source.source_id for entry in evidence.coverage} == source_ids
     assert len(evidence.coverage) == len(source_ids)
     for event, classification in zip(
