@@ -25,6 +25,14 @@ where = ["src"]
 [tool.setuptools.package-data]
 engine = ["py.typed"]
 
+[tool.setuptools.data-files]
+"share/wallet-tax-engine/frontend" = [
+    "frontend/*.html",
+    "frontend/*.css",
+    "frontend/*.js",
+    "frontend/*.svg",
+]
+
 [tool.pytest.ini_options]
 addopts = "-ra --strict-config --strict-markers"
 testpaths = ["tests"]

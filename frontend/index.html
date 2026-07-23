@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Wallet tax report">
+    <title>W2TL | Tax Report</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="./index.html" aria-label="W2TL home">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </span>
+          <span class="brand-copy">
+            <strong>W2TL</strong>
+            <span>Wallet to Tax Lots</span>
+          </span>
+        </a>
+        <nav class="source-navigation" aria-label="Report sections">
+          <a href="./index.html" aria-current="page">Report</a>
+          <a href="./solana.html">Solana RPC</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="page-heading" aria-labelledby="page-title">
+        <h1 id="page-title">Wallet tax report</h1>
+        <div class="run-state" id="run-state" data-tone="neutral">
+          <span aria-hidden="true"></span>
+          <strong>Ready</strong>
+        </div>
+      </section>
+
+      <section class="report-builder" aria-labelledby="builder-title">
+        <div class="section-heading">
+          <h2 id="builder-title">Create report</h2>
+        </div>
+        <form class="report-builder-form" id="demo-form">
+          <label>
+            <span>Transactions</span>
+            <input id="demo-row-limit" type="number" min="1" max="50" value="42" required>
+          </label>
+          <button class="button button-primary" id="generate-report" type="submit">
+            Generate report
+          </button>
+        </form>
+        <p class="status-message" id="status-message" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="report-shell" id="form-8949" aria-labelledby="report-title" hidden>
+        <div class="report-toolbar">
+          <h2 id="report-title">Tax report</h2>
+          <div class="report-actions">
+            <span class="document-badge document-badge-warning">Draft</span>
+            <button class="button button-quiet" id="start-over" type="button">Start over</button>
+          </div>
+        </div>
+
+        <article class="tax-form" aria-label="Form 8949 draft">
+          <header class="form-header">
+            <div class="form-number">
+              <span>Form</span>
+              <strong>8949</strong>
+            </div>
+            <div class="form-title">
+              <h3>Sales and Other Dispositions of Capital Assets</h3>
+            </div>
+            <div class="form-year">
+              <span>Tax year</span>
+              <strong id="tax-year"></strong>
+            </div>
+          </header>
+
+          <div class="form-part-heading">
+            <strong>Part I</strong>
+            <span>Short-term transactions</span>
+          </div>
+          <div class="table-scroll">
+            <table class="report-table">
+              <thead>
+                <tr>
+                  <th scope="col">(a) Description</th>
+                  <th scope="col">(b) Acquired</th>
+                  <th scope="col">(c) Disposed</th>
+                  <th scope="col">(d) Proceeds</th>
+                  <th scope="col">(e) Cost basis</th>
+                  <th scope="col">(f) Code</th>
+                  <th scope="col">(g) Adjustment</th>
+                  <th scope="col">(h) Gain or loss</th>
+                </tr>
+              </thead>
+              <tbody id="short-term-rows"></tbody>
+              <tfoot id="short-term-totals"></tfoot>
+            </table>
+          </div>
+
+          <div class="form-part-heading">
+            <strong>Part II</strong>
+            <span>Long-term transactions</span>
+          </div>
+          <div class="table-scroll">
+            <table class="report-table">
+              <thead>
+                <tr>
+                  <th scope="col">(a) Description</th>
+                  <th scope="col">(b) Acquired</th>
+                  <th scope="col">(c) Disposed</th>
+                  <th scope="col">(d) Proceeds</th>
+                  <th scope="col">(e) Cost basis</th>
+                  <th scope="col">(f) Code</th>
+                  <th scope="col">(g) Adjustment</th>
+                  <th scope="col">(h) Gain or loss</th>
+                </tr>
+              </thead>
+              <tbody id="long-term-rows"></tbody>
+              <tfoot id="long-term-totals"></tfoot>
+            </table>
+          </div>
+
+          <section class="income-report" aria-labelledby="income-report-title">
+            <div class="form-part-heading">
+              <strong>Income</strong>
+              <span id="income-report-title">Rewards and airdrops</span>
+            </div>
+            <div class="table-scroll">
+              <table class="report-table income-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Description</th>
+                    <th scope="col">Received</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Fair value</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Source</th>
+                  </tr>
+                </thead>
+                <tbody id="income-rows"></tbody>
+                <tfoot id="income-totals"></tfoot>
+              </table>
+            </div>
+          </section>
+
+          <footer class="form-footer">
+            <div>
+              <span>Fixture</span>
+              <strong id="fixture-id"></strong>
+            </div>
+            <div>
+              <span>Policy</span>
+              <strong id="policy-id"></strong>
+            </div>
+            <div>
+              <span>Basis method</span>
+              <strong id="basis-method"></strong>
+            </div>
+          </footer>
+        </article>
+      </section>
+
+      <section class="processing-section" id="processing-section" aria-labelledby="processing-title" hidden>
+        <div class="section-heading section-heading-rule">
+          <h2 id="processing-title">Run summary</h2>
+          <p class="section-meta" id="policy-label"></p>
+        </div>
+        <div class="metrics" id="run-metrics"></div>
+        <details class="folded-panel exception-worklist" id="exception-worklist">
+          <summary id="exception-summary">Exceptions</summary>
+          <div class="exception-toolbar">
+            <label>
+              <span>Stage</span>
+              <select id="exception-stage"><option value="">All stages</option></select>
+            </label>
+          </div>
+          <div class="exception-list" id="exception-list"></div>
+        </details>
+      </section>
+
+      <section class="wallet-section" id="wallet-section" aria-labelledby="wallet-title" hidden>
+        <div class="section-heading section-heading-rule">
+          <h2 id="wallet-title">Wallet evidence</h2>
+          <p class="section-meta" id="wallet-total"></p>
+        </div>
+        <details class="folded-panel">
+          <summary>Source wallets</summary>
+          <div class="wallet-grid" id="wallet-grid"></div>
+        </details>
+      </section>
+    </main>
+  </body>
+</html>

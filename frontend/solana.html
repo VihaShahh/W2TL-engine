@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Public Solana wallet report">
+    <title>W2TL | Solana Report</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./solana.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="./index.html" aria-label="W2TL home">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </span>
+          <span class="brand-copy">
+            <strong>W2TL</strong>
+            <span>Wallet to Tax Lots</span>
+          </span>
+        </a>
+        <nav class="source-navigation" aria-label="Report sections">
+          <a href="./index.html">Report</a>
+          <a href="./solana.html" aria-current="page">Solana RPC</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="page-heading" aria-labelledby="page-title">
+        <h1 id="page-title">Solana wallet report</h1>
+        <div class="run-state" id="solana-state" data-tone="neutral">
+          <span aria-hidden="true"></span>
+          <strong>Ready</strong>
+        </div>
+      </section>
+
+      <section class="rpc-section" aria-labelledby="rpc-title">
+        <div class="section-heading">
+          <h2 id="rpc-title">Public wallet</h2>
+        </div>
+        <form class="rpc-form" id="solana-form">
+          <label>
+            <span>Wallet address</span>
+            <input
+              id="solana-wallet"
+              name="walletAddress"
+              type="text"
+              autocomplete="off"
+              spellcheck="false"
+              value="Vote111111111111111111111111111111111111111"
+              required
+            >
+          </label>
+          <label>
+            <span>Transactions</span>
+            <input id="solana-page-limit" name="pageLimit" type="number" min="1" max="20" value="5" required>
+          </label>
+          <button class="button button-secondary" id="solana-load" type="submit">
+            Run report
+          </button>
+          <details class="advanced-control">
+            <summary>RPC settings</summary>
+            <label>
+              <span>Endpoint</span>
+              <input
+                id="solana-endpoint"
+                name="endpoint"
+                type="url"
+                value="https://api.mainnet-beta.solana.com"
+                required
+              >
+            </label>
+          </details>
+        </form>
+        <p class="status-message" id="solana-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="processing-section solana-output" id="solana-output" aria-labelledby="result-title">
+        <div class="section-heading section-heading-rule">
+          <h2 id="result-title">Transaction report</h2>
+          <p class="section-meta" id="solana-report-meta">No report loaded</p>
+        </div>
+        <div class="metrics" id="solana-metrics">
+          <div class="metric"><span>Transactions</span><strong>-</strong></div>
+          <div class="metric"><span>Exceptions</span><strong>-</strong></div>
+          <div class="metric"><span>Pages</span><strong>-</strong></div>
+          <div class="metric"><span>Result</span><strong>Ready</strong></div>
+        </div>
+
+        <div class="solana-report table-scroll">
+          <table class="report-table observation-table">
+            <thead>
+              <tr>
+                <th scope="col">Observed time</th>
+                <th scope="col">Status</th>
+                <th scope="col">SOL movement</th>
+                <th scope="col">Fee</th>
+                <th scope="col">Signature</th>
+                <th scope="col">Source</th>
+              </tr>
+            </thead>
+            <tbody id="solana-rows">
+              <tr class="empty-row"><td colspan="6">Run a report to load public transactions.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <details class="folded-panel exception-worklist" id="solana-exceptions">
+          <summary id="solana-exception-summary">Exceptions (0)</summary>
+          <div class="exception-list" id="solana-issues">
+            <p class="empty-message">No exceptions.</p>
+          </div>
+        </details>
+
+        <details class="folded-panel" id="solana-provenance">
+          <summary>Retrieval details</summary>
+          <dl class="contract-facts" id="solana-provenance-facts"></dl>
+        </details>
+      </section>
+    </main>
+  </body>
+</html>

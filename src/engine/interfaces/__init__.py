@@ -1,1 +1,1 @@
-"""Command-line entry points."""
+"""Command-line and local web entry points."""
