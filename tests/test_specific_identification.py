@@ -115,6 +115,8 @@ def test_valid_manifest_consumes_only_explicit_lot_quantities() -> None:
 
     consumptions = ledger.consume_manifest(sale, manifest=manifest)
 
+    # Manifest order and quantities are the evidence for selection; the ledger must not reorder
+    # them as FIFO would. Shared splitting still leaves exact remainders in both source lots.
     assert ledger.method == "SPECIFIC_IDENTIFICATION"
     assert [item.lot_id for item in consumptions] == [second.lot_id, first.lot_id]
     assert [item.quantity_base_units for item in consumptions] == [1_000_000, 1_000_000]
@@ -136,6 +138,8 @@ def test_missing_manifest_never_falls_back_to_automatic_ordering() -> None:
         cash=Decimal("7"),
     )
 
+    # A FIFO fallback would produce a plausible number while falsely claiming specific
+    # identification. Missing evidence therefore leaves inventory completely unchanged.
     with pytest.raises(MissingSpecificIdentificationError, match="explicit"):
         ledger.consume(sale)
 
@@ -172,6 +176,8 @@ def test_manifest_rejects_wrong_wallet_lot_without_mutation() -> None:
     )
     before = ledger.all_lots()
 
+    # Lot IDs are not enough: basis scope is wallet-and-mint. Prevalidating the complete manifest
+    # prevents the valid first selection from applying before the invalid second selection fails.
     with pytest.raises(InvalidSpecificIdentificationError, match="another wallet"):
         ledger.consume_manifest(sale, manifest=manifest)
 
@@ -221,6 +227,8 @@ def test_invalid_manifest_is_rejected_before_mutation(case: str, error: str) -> 
     )
     before = ledger.all_lots()
 
+    # Every manifest defect is checked before mutation, so all error variants share the same
+    # all-or-nothing inventory guarantee.
     with pytest.raises(InvalidSpecificIdentificationError, match=error):
         ledger.consume_manifest(sale, manifest=manifest)
 

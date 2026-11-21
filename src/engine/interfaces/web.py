@@ -373,7 +373,7 @@ class DemoRequestHandler(BaseHTTPRequestHandler):
                     build_processed_payload(
                         fixtures_dir,
                         scenario_id=scenario_id,
-                        row_limit=_json_int(payload.get("rowLimit"), default=42),
+                        row_limit=_json_int(payload.get("rowLimit"), default=20),
                     ),
                 )
             except (OSError, ValueError) as error:

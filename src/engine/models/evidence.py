@@ -1,4 +1,8 @@
-"""Immutable source, fixture, token, and price evidence contracts."""
+"""Immutable source, fixture, token, and price evidence contracts.
+
+These models preserve what a source supplied and where it came from. They do not infer tax
+treatment, which lets normalization and classification be reviewed independently of loading.
+"""
 
 from __future__ import annotations
 
@@ -12,7 +16,11 @@ from engine.models.states import PriceResolutionState, TransactionStatus
 
 @dataclass(frozen=True, slots=True)
 class SourceReference:
-    """Stable pointer from a derived object back to one source record."""
+    """Stable pointer from a derived object back to one source record.
+
+    The compact reference carries enough identity to trace a lot, report row, or exception to
+    the exact fixture record without copying the mutable source payload downstream.
+    """
 
     source_id: str
     fixture_set_id: str
@@ -22,7 +30,11 @@ class SourceReference:
 
 @dataclass(frozen=True, slots=True)
 class RawInstructionEvidence:
-    """Synthetic instruction facts retained without assigning tax treatment."""
+    """Synthetic instruction facts retained without assigning tax treatment.
+
+    An instruction label is only evidence. Balance direction, status, ownership, and other
+    context must still support a classification before accounting mutates inventory.
+    """
 
     program: str
     instruction_type: str
@@ -33,6 +45,12 @@ class RawInstructionEvidence:
 
 @dataclass(frozen=True, slots=True)
 class RawTokenBalanceChange:
+    """Pre-balance, post-balance, and signed delta for one token mint.
+
+    Retaining all three values lets the loader reject contradictory arithmetic rather than
+    trusting whichever amount would make later accounting convenient.
+    """
+
     mint: str
     pre_balance_base_units: int
     post_balance_base_units: int
@@ -40,6 +58,12 @@ class RawTokenBalanceChange:
 
 @dataclass(frozen=True, slots=True)
 class FeeEvidence:
+    """Observed fee charge, payer, asset metadata, and exact base-unit quantity.
+
+    Fee evidence is separate from event classification because a failed transaction can revert
+    its intended legs while still charging a real network fee.
+    """
+
     payer_wallet_id: str
     fee_base_units: int
     charged: bool
@@ -89,7 +113,11 @@ class FeeEvidence:
 
 @dataclass(frozen=True, slots=True)
 class Transaction:
-    """Validated source record whose values remain unchanged after loading."""
+    """One validated source record whose values remain unchanged after loading.
+
+    It is not yet a logical economic event: duplicate handling or owned-wallet transfer matching
+    may combine this record with another observation before classification.
+    """
 
     source: SourceReference
     slot: int
@@ -102,12 +130,24 @@ class Transaction:
 
 @dataclass(frozen=True, slots=True)
 class TokenMetadata:
+    """Source-backed token identity, display symbol, and base-unit precision.
+
+    Accounting keys by mint rather than symbol, while decimals provide the exact conversion from
+    integer protocol units to a human-readable quantity.
+    """
+
     mint: str
     symbol: str
     decimals: int
 
 @dataclass(frozen=True, slots=True)
 class PricePoint:
+    """One positive exact price observation with mint, time, currency, and source identity.
+
+    The point does not choose among alternatives. The resolver separately decides whether an
+    exact query has one match, no match, or conflicting matches.
+    """
+
     price_id: str
     mint: str
     timestamp_utc: datetime
@@ -120,7 +160,11 @@ class PricePoint:
 
 @dataclass(frozen=True, slots=True)
 class PriceResolution:
-    """Exact lookup result with source matches retained for review."""
+    """Exact lookup result with source matches retained for review.
+
+    The tagged result makes found, missing, and conflict mutually explicit. Only a single found
+    match can expose a numeric price to accounting.
+    """
 
     state: PriceResolutionState
     mint: str
@@ -166,6 +210,12 @@ class PriceResolution:
 
 @dataclass(frozen=True, slots=True)
 class ScenarioDefinition:
+    """Named adversarial fixture case with its purpose and expected outcome.
+
+    Mapping every source record to a scenario proves fixture volume exercises understood failure
+    modes instead of padding the data set with meaningless records.
+    """
+
     scenario_id: str
     source_record_ids: tuple[str, ...]
     purpose: str
@@ -174,6 +224,12 @@ class ScenarioDefinition:
 
 @dataclass(frozen=True, slots=True)
 class GroundTruthMetadata:
+    """Contract, fixture, policy, and currency identity for reviewed expectations.
+
+    Expected accounting is meaningful only under the same versioned assumptions as the run, so
+    mismatched metadata must fail before comparison.
+    """
+
     contract_version: int
     fixture_set_id: str
     policy_id: str
@@ -182,7 +238,11 @@ class GroundTruthMetadata:
 
 @dataclass(frozen=True, slots=True)
 class FixtureBundle:
-    """Typed local evidence used by normalization and later accounting stages."""
+    """Complete typed evidence snapshot handed from loading to later stages.
+
+    Grouping ownership, transactions, prices, token metadata, scenarios, and source references
+    prevents downstream code from accidentally mixing values loaded from different snapshots.
+    """
 
     fixture_set_id: str
     client_id: str

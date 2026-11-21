@@ -72,6 +72,8 @@ class TaxLotLedger(ABC):
     """
 
     def __init__(self) -> None:
+        # One ledger can hold many accounts and assets, but this compound key makes selection
+        # wallet-scoped and mint-scoped. A sale in Alpha therefore cannot consume Beta inventory.
         self._lots: dict[tuple[str, str], list[Lot]] = {}
         self._consumptions: list[LotConsumption] = []
         self._movements: list[LotMovement] = []
@@ -110,6 +112,8 @@ class TaxLotLedger(ABC):
     def _store(self, lot: Lot) -> Lot:
         queue = self._lots.setdefault((lot.wallet_id, lot.mint), [])
         queue.append(lot)
+        # Stable ordering is part of reproducibility. Lot ID breaks exact acquisition-time ties
+        # so fixture file order cannot silently change FIFO behavior.
         queue.sort(
             key=lambda item: (
                 item.acquisition.sort_timestamp_utc,
@@ -251,6 +255,8 @@ class TaxLotLedger(ABC):
             if lot.state is InventoryState.OPEN and lot.remaining_quantity_base_units > 0
         )
         available = sum(lot.remaining_quantity_base_units for lot in eligible)
+        # Preflight the whole request before replacing any lot. Otherwise an overdrawn disposal
+        # could consume all available inventory and fail only after leaving a partial mutation.
         if available < quantity_base_units:
             raise InsufficientInventoryError(
                 f"{wallet_id}/{mint} needs {quantity_base_units} base units but has {available}."
@@ -276,6 +282,8 @@ class TaxLotLedger(ABC):
                 remaining_quantity_base_units=lot.remaining_quantity_base_units - quantity,
                 remaining_basis=remaining_basis,
             )
+            # Keep the selected before-state lot for lineage and acquisition facts; the queue now
+            # contains the separate after-state replacement used by subsequent selections.
             selected.append(
                 _SelectedSlice(lot=lot, quantity_base_units=quantity, basis=consumed_basis)
             )
@@ -309,6 +317,9 @@ class TaxLotLedger(ABC):
                 "Specific-identification quantities do not equal the disposal quantity."
             )
 
+        # Specific identification must be all-or-nothing. Validate every requested lot before the
+        # second loop applies any replacement, so an invalid later selection cannot leave an
+        # earlier selection partially consumed.
         validated: list[tuple[list[Lot], int, Lot, int]] = []
         for selection in manifest.selections:
             found: tuple[list[Lot], int, Lot] | None = None
@@ -418,6 +429,8 @@ class TaxLotLedger(ABC):
             )
             if destination_leg is not None:
                 lot_id_parts = (*lot_id_parts, destination_mint)
+            # A child lot records the new wallet or mint while preserving source acquisition and
+            # basis. Rewriting the source lot's identity would erase the before-state audit trail.
             destination_lot = self._store(
                 Lot(
                     lot_id=stable_id("lot", *lot_id_parts),
@@ -535,7 +548,11 @@ class TaxLotLedger(ABC):
         return tuple(self._movements)
 
 class FifoLedger(TaxLotLedger):
-    """Select the oldest eligible lots while reusing shared tax-lot mutations."""
+    """Select oldest eligible lots while reusing shared tax-lot mutations.
+
+    FIFO changes only ordering. Unknown basis does not prevent age ranking, although an unknown
+    consumed slice cannot become a complete monetary report row.
+    """
 
     @property
     def method(self) -> str:
@@ -554,13 +571,19 @@ class FifoLedger(TaxLotLedger):
         )
 
 class HifoLedger(TaxLotLedger):
-    """Select the highest exact remaining unit basis within the eligible lot set."""
+    """Select highest exact remaining unit basis within the eligible lot set.
+
+    HIFO shares FIFO's mutation and conservation rules but cannot rank an unknown basis without
+    inventing whether it is high or low.
+    """
 
     @property
     def method(self) -> str:
         return "HIFO"
 
     def _get_lots_for_consumption(self, lots: tuple[Lot, ...]) -> tuple[Lot, ...]:
+        # Reject the complete selection before sorting. Treating unknown as zero or infinity would
+        # be an unsupported accounting choice that could change the realized gain.
         unknown_lot_ids = sorted(
             lot.lot_id for lot in lots if not lot.remaining_basis.is_known
         )
@@ -583,7 +606,11 @@ class HifoLedger(TaxLotLedger):
         )
 
 class SpecificIdentificationLedger(TaxLotLedger):
-    """Consume only explicit valid manifest slices and never choose an automatic fallback."""
+    """Consume only explicit valid manifest slices with no automatic fallback.
+
+    A successful result must prove the named wallet, mint, event, lots, and quantities. Falling
+    back to FIFO would produce a number but would not satisfy specific identification.
+    """
 
     @property
     def method(self) -> str:

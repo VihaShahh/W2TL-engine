@@ -53,6 +53,12 @@ def _lot_record(lot: Lot) -> dict[str, object]:
     return result
 
 class CapturingLedger(FifoLedger):
+    """Expose the pipeline's real ledger so tests can inspect intermediate accounting state.
+
+    Production returns only a run summary; this test subclass observes lots and lineage without
+    changing any FIFO selection or mutation behavior.
+    """
+
     latest: ClassVar[CapturingLedger | None] = None
 
     def __init__(self) -> None:
@@ -66,6 +72,8 @@ def test_complete_fixture_has_96_mapped_records_and_required_event_families() ->
         record_id for scenario in fixture.scenarios for record_id in scenario.source_record_ids
     )
 
+    # Volume alone is not coverage. Every one of the 96 records must map exactly once to a named
+    # adversarial scenario and finish in one explicit source-coverage state.
     assert len(fixture.all_source_refs) == 96
     assert 80 <= len(fixture.all_source_refs) <= 120
     assert set(mapped.values()) == {1}
@@ -122,6 +130,8 @@ def test_complete_minefields_keep_expected_order_state_and_partial_linkage() -> 
     }
     coverage = {item.source.fixture_record_id: item.status.value for item in evidence.coverage}
 
+    # These assertions sample risks that totals cannot reveal: stable tie order, duplicate
+    # disposition, unknown-basis movement, holding boundary, and mixed-slice closure.
     assert event_positions["complete-buy-tie-alpha"] < event_positions["complete-buy-tie-zulu"]
     assert coverage["complete-buy-old-skito-copy"] == "secondary_view"
     assert coverage["complete-conflict-a"] == "quarantined"
@@ -215,6 +225,8 @@ def test_complete_lots_consumptions_movements_and_reports_match_ground_truth(
         _lot_record(lot) for lot in ledger.all_lots() if lot.remaining_quantity_base_units > 0
     ]
 
+    # Compare intermediate mutation records as well as files. A final total could match while the
+    # engine consumed the wrong wallet, lot, acquisition date, or basis slice.
     assert actual_lots == _load_json(GROUND_TRUTH_DIR / "lots.json")["lots"]
     assert actual_consumptions == _load_json(GROUND_TRUTH_DIR / "consumptions.json")["consumptions"]
     assert actual_movements == _load_json(GROUND_TRUTH_DIR / "lot_movements.json")["lot_movements"]

@@ -114,6 +114,8 @@ def _two_lot_disposal() -> tuple[FifoLedger, tuple[DisposalRow, ...]]:
 def test_us_adapter_creates_stable_rows_that_reconcile_to_two_lot_parent() -> None:
     ledger, rows = _two_lot_disposal()
 
+    # One sale crosses an old and a new lot. Separate rows preserve different holding terms while
+    # their quantities and allocated proceeds still close exactly to the parent event.
     assert len(rows) == 2
     assert len({row.disposal_id for row in rows}) == 2
     assert sum(row.quantity_base_units for row in rows) == 2_000_000
@@ -154,6 +156,8 @@ def test_income_adapter_reconciles_receipt_value_to_created_lot() -> None:
     )
     rows = UsTaxReportHandler(policy=US_FIFO_POLICY).prepare_income_rows(income=income)
 
+    # Recognized income becomes the received property's starting basis. This equality prevents a
+    # later disposal from using a different dollar value than the original income result.
     assert len(rows) == 1
     assert rows[0].fair_value_usd == Decimal("6.50000000")
     assert rows[0].price_source_id == "price_reward_exact"
@@ -167,6 +171,8 @@ def test_reconciliation_blocks_a_corrupted_disposal_before_writing() -> None:
     ledger, rows = _two_lot_disposal()
     corrupted = (replace(rows[0], gain_loss_usd=Decimal("999")), rows[1])
 
+    # Deterministic serialization cannot make inconsistent accounting safe. Reconciliation must
+    # reject the corrupted gain equation before the writer is allowed to publish it.
     with pytest.raises(ReconciliationError, match="proceeds minus basis"):
         reconcile_run(ledger=ledger, disposals=corrupted, income=())
 
@@ -193,6 +199,8 @@ def test_exception_json_keeps_every_actionable_field_and_stable_order(tmp_path: 
     payload = json.loads((tmp_path / "exceptions.json").read_text(encoding="utf-8"))
     exceptions = payload["exceptions"]
 
+    # Stable order makes replay diffs useful; required workflow fields make each unknown something
+    # a reviewer can investigate instead of a developer-only warning string.
     assert [item["exception_id"] for item in exceptions] == sorted(
         item["exception_id"] for item in exceptions
     )

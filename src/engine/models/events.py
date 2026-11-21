@@ -1,4 +1,9 @@
-"""Canonical event, classification, and source-coverage contracts."""
+"""Canonical event, classification, and source-coverage contracts.
+
+The dataclasses are frozen because they represent facts passed between pipeline stages. A later
+stage must derive a new result instead of rewriting the evidence that an earlier stage observed.
+Slots keep the field contract strict and prevent accidental misspelled attributes.
+"""
 
 from __future__ import annotations
 
@@ -18,6 +23,12 @@ from engine.models.states import (
 
 @dataclass(frozen=True, slots=True)
 class TokenLeg:
+    """One mint, direction, and exact quantity component of a normalized event.
+
+    Legs are separate objects because swaps and fee-bearing events can move several assets. They
+    describe movement only; basis, gain, and tax classification belong to later stages.
+    """
+
     component_id: str
     mint: str
     symbol: str
@@ -27,7 +38,11 @@ class TokenLeg:
 
 @dataclass(frozen=True, slots=True)
 class NormalizedEvent:
-    """Canonical chain facts without tax-form or lot-accounting fields."""
+    """Canonical source-linked facts consumed by classification and accounting.
+
+    The model unifies source shapes while deliberately excluding lots and report fields. This
+    keeps normalization from deciding a tax result while it is still describing evidence.
+    """
 
     event_id: str
     source_refs: tuple[SourceReference, ...]
@@ -45,6 +60,12 @@ class NormalizedEvent:
 
 @dataclass(frozen=True, slots=True)
 class Classification:
+    """Evidence-backed economic label and resolution state for one logical event.
+
+    Keeping this separate from the event preserves the observed facts and records which stable
+    rule and source records supported the later interpretation.
+    """
+
     event_id: str
     type: ClassificationType
     state: ResolutionState
@@ -53,6 +74,12 @@ class Classification:
 
 @dataclass(frozen=True, slots=True)
 class CoverageEntry:
+    """Final accounting of how one stored source record was handled.
+
+    Coverage includes secondary and quarantined records so a plausible report cannot hide an
+    input that disappeared before accounting.
+    """
+
     source: SourceReference
     status: CoverageStatus
     event_id: str | None
